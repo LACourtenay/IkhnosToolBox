@@ -10,10 +10,10 @@
 #' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}}.
 #'
 #' @examples
-#' data(femur_left)
-#' load_bone(femur_left)
-#' load_marks("circular", plot = TRUE, colour_value = "black")
-#' load_marks("linear", plot = TRUE, colour_value = "red")
+#' data(left_femur)
+#' load_bone(left_femur)
+#' load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
+#' load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 #' save_3d_image("my_first_plot")
 
 save_3d_image <- function(file_name) {

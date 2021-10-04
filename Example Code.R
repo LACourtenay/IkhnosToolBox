@@ -15,12 +15,12 @@ load_bone(right_femur)
 
 example_c <- load_marks(
   "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\B_femur R_A_medium.txt",
-  "circular",
+  mark_type = "circular",
   plot = TRUE
 )
 example_l <- load_marks(
   "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
-  "linear",
+  mark_type = "linear",
   plot = TRUE,
   colour_value = "red"
 )

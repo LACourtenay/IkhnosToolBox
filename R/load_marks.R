@@ -27,10 +27,10 @@
 #'
 #' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}}.
 #' @examples
-#' data(femur_left)
-#' load_bone(femur_left)
-#' load_marks("circular", plot = TRUE, colour_value = "black")
-#' load_marks("linear", plot = TRUE, colour_value = "red")
+#' data(left_femur)
+#' load_bone(left_femur)
+#' load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
+#' load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 #' save_3d_image("my_first_plot")
 
 load_marks <- function(file_name = NULL, mark_type = "circular",
@@ -41,7 +41,10 @@ load_marks <- function(file_name = NULL, mark_type = "circular",
 
   `%!in%` = Negate(`%in%`)
 
-  if (mark_type != "circular" & mark_type != "linear") {
+  possible_marks <- c("circular", "linear")
+
+
+  if (mark_type %!in% possible_marks) {
     return(warning("Please select between circular or linear mark types"))
   }
 
