@@ -1,8 +1,27 @@
 
+#' Prepare data for spatial analysis
+#'
+#' The present function is used to prepare data for further spatial analysis
+#'
+#' @param input_data a data.frame object containing spatial coordinates
+#' @param mark_type a string specifying whether marks are "circular" or "linear"
+#' @param print_summary a boolean option to print a summary of data
+#' @param plot_results a boolean option to plot the spatial information
+#'
+#' @return A spatial object for statistical analyses
+#'
+#' @examples
+#' example_data <- load_marks(mark_type = "circular")
+#' example_sp_object <- extract_spatial_data(example_data, "circular")
+
 extract_spatial_data <- function(input_data,
-                                 mark_type,
+                                 mark_type = "circular",
                                  print_summary = TRUE,
                                  plot_results = FALSE) {
+
+  if(missing(input_data)) {
+    return(warning("Warning no input data"))
+  }
 
   if (mark_type != "circular" & mark_type != "linear") {
     return(warning("Please select between circular or linear mark types"))
@@ -52,5 +71,3 @@ extract_spatial_data <- function(input_data,
   return(spatial_data) # check whether the box is necessary
 
 }
-
-#extract_spatial_data(example_c, "circular")
