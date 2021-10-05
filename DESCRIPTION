@@ -10,7 +10,7 @@ Authors@R: c(
 Description: Group of R functions for the statistical analysis of data derived from the
     Ikhnos taphonomic software. At this moment in time, the IkhnosToolBox is
     under development. 
-License: What license is it under?
+License: MIT License. Copyright (c) 2021 Lloyd Austin David Courtenay
 Encoding: UTF-8
 LazyData: true
 Imports:
