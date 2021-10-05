@@ -78,3 +78,68 @@ wavelet_analysis(
 
 #
 
+# skeletal profile analysis ------------------
+
+# series 1
+
+h1 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\H_humerus L&R_A&SA_medium.txt",
+  "circular", plot = FALSE
+)
+f1 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\F_femur L&R_A&SA_medium.txt",
+  "circular", plot = FALSE
+)
+r1 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\R_radius L&R_A&SA_medium.txt",
+  "circular", plot = FALSE
+)
+t1 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\T_tibia L&R_A&SA_medium.txt",
+  "circular", plot = FALSE
+)
+
+# series 2
+
+h2 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\H2_humerus L&R_A&SA_small.txt",
+  "circular", plot = FALSE
+)
+f2 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\F2_femur L&R_A&SA_small.txt",
+  "circular", plot = FALSE
+)
+r2 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\R2_radius L&R_A&SA_small.txt",
+  "circular", plot = FALSE
+)
+t2 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\T2_tibia L&R_A&SA_small.txt",
+  "circular", plot = FALSE
+)
+
+# series 3
+
+h3 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\humerus L&R_A_large.txt",
+  "circular", plot = FALSE
+)
+f3 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\femur L&R_A_large.txt",
+  "circular", plot = FALSE
+)
+r3 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\radius R_A_large.txt",
+  "circular", plot = FALSE
+)
+t3 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\tibia L&R_A_large.txt",
+  "circular", plot = FALSE
+)
+
+create_time_series(h = h1, f = f1, r = r1, t = t1)
+add_time_series(h = h2, f = f2, r = r2, t = t2)
+add_time_series(h = h3, f = f3, r = r3, t = t3)
+
+#
+
