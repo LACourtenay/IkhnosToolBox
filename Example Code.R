@@ -43,3 +43,19 @@ sp_distance_matrices(example_circular, example_linear,
 
 #
 
+# tSNE ------------------------------------
+
+sample1_coords <- as.matrix(example_circular)
+sample2_coords <- as.matrix(example_linear)
+sample1_sample2 <- rbind(sample1_coords, sample2_coords)
+group_labels <- as.factor(c(
+  rep("circular", nrow(sample1_coords)),
+  rep("linear", nrow(sample2_coords))
+))
+
+tsne_calculation(sample1_sample2, group_labels)
+
+tsne_calculation(sample1_sample2)
+
+#
+
