@@ -3,6 +3,8 @@ calculate_orientations <- function(linear_data, bone) {
 
   # maybe to ensure that data is linear, a linear_data class should be created...?
 
+  `%!in%` = Negate(`%in%`)
+
   if (missing(bone)) {
     return(warning(
       paste0(
@@ -15,6 +17,12 @@ calculate_orientations <- function(linear_data, bone) {
   if(missing(linear_data)) {
     return(warning(
       "No data has been introduced!"
+    ))
+  }
+
+  if ("x2" %!in% colnames(linear_data)) {
+    return(warning(
+      "Data provided are not linear marks"
     ))
   }
 
