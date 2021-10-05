@@ -13,12 +13,12 @@ load_bone(right_femur)
 
 # if file path is known:
 
-example_c <- load_marks(
+example_1 <- load_marks(
   "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\B_femur R_A_medium.txt",
   mark_type = "circular",
   plot = TRUE
 )
-example_l <- load_marks(
+example_2 <- load_marks(
   "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
   mark_type = "linear",
   plot = TRUE,
@@ -31,7 +31,15 @@ save_3d_image("trial")
 
 # Statistics ----------------------------
 
-example_circular <- extract_spatial_data(example_c, mark_type = "circular", plot_results = TRUE)
-example_linear <- extract_spatial_data(example_l, "linear", plot_results = TRUE)
+example_circular <- extract_spatial_data(example_1, mark_type = "circular", plot_results = TRUE)
+example_linear <- extract_spatial_data(example_2, "linear", plot_results = TRUE)
 
 perform_CSR_analyses(example_circular, n_permutations = 200)
+perform_CSR_analyses(example_linear, n_permutations = 200)
+
+sp_distance_matrix(example_circular)
+sp_distance_matrices(example_circular, example_linear,
+                     name_1 = "circular", name_2 = "linear")
+
+#
+

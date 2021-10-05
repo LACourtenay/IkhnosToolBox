@@ -1,5 +1,5 @@
 
-distance_matrices <- function(spatial_object_1, spatial_object_2,
+sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
                               name_1, name_2) {
 
 
