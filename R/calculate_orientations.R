@@ -116,6 +116,8 @@ calculate_orientations <- function(linear_data, bone,
   text(0, 1.1, "Diaphysis", font = 2)
   text(-0.75, 1, "Distal Epiphysis", font = 2)
 
+  par(mfrow = c(1,1))
+
   return(circ_obj)
 
 }

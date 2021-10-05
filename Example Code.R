@@ -74,7 +74,7 @@ example_time_series <- two_sample_histogram_distributions(
 wavelet_analysis(
   example_time_series$first_sample_ts,
   example_time_series$second_sample_ts,
-  "circular", "linear", create_external_plot = FALSE
+  "circular", "linear"
 )
 
 #
