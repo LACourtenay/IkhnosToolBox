@@ -21,7 +21,8 @@ add_time_series <- function(
         ylim = ts$y_lim, lwd = 1, col = colour, ylab = "Percentage", xlab = "")
   points(ts$total_line, ts$percentages, pch = 19, col = colour)
 
-  time_series <- cbind(ts$total_line, ts$series)
+  #time_series <- cbind(ts$total_line, ts$series)
+  time_series <- data.frame(sequence = ts$total_line, frequencies = ts$series)
 
   return(time_series)
 
