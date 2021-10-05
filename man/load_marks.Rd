@@ -5,8 +5,8 @@
 \title{Load marks from IKHNOS files.}
 \usage{
 load_marks(
-  mark_type,
   file_name = NULL,
+  mark_type = "circular",
   delim = ",",
   plot = FALSE,
   colour_value = "black",
@@ -14,12 +14,12 @@ load_marks(
 )
 }
 \arguments{
-\item{mark_type}{A lower case string specifying whether the marks under study
-are "circular" or "linear".}
-
 \item{file_name}{A string containing the path of the Ikhnos product file.
 If no file name is specified, then a popup window will appear allowing the user
 to locat the file in their system.}
+
+\item{mark_type}{A lower case string specifying whether the marks under study
+are "circular" or "linear".}
 
 \item{delim}{A string specifying how marks are delimited within the Ikhnos product file.}
 
@@ -46,10 +46,10 @@ to visualize marks on the 3D model, and \code{save_3d_image} to
 save the window to a *.png file.
 }
 \examples{
-data(femur_left)
-load_bone(femur_left)
-load_marks("circular", plot = TRUE, colour_value = "black")
-load_marks("linear", plot = TRUE, colour_value = "red")
+data(left_femur)
+load_bone(left_femur)
+load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
+load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 save_3d_image("my_first_plot")
 }
 \seealso{

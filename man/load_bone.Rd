@@ -19,10 +19,10 @@ to visualize marks on the 3D model, and \code{save_3d_image} to
 save the window to a *.png file.
 }
 \examples{
-data(femur_left)
-load_bone(femur_left)
-load_marks("circular", plot = TRUE, colour_value = "black")
-load_marks("linear", plot = TRUE, colour_value = "red")
+data(left_femur)
+load_bone(left_femur)
+load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
+load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 save_3d_image("my_first_plot")
 }
 \seealso{

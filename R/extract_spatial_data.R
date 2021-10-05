@@ -31,31 +31,29 @@ extract_spatial_data <- function(input_data,
 
     # in reality... will the columns always be named x1, y1 and z1?
 
-    #xyz <- tibble::as_tibble(data) %>%
-    #  select(x = x1, y = y1, z = z1)
-    xyz <- input_data[[c("x1", "y1", "z1")]]
+    xyz <- input_data[,c("x1", "y1", "z1")]
     colnames(xyz) <- c("x", "y", "z")
 
     xlim <- c(min(xyz$x), max(xyz$x))
     ylim <- c(min(xyz$y), max(xyz$y))
     zlim <- c(min(xyz$z), max(xyz$z))
 
-    box <- spatstat::box3(xlim, ylim, zlim, unitname = "mm")
-    spatial_data <- spatstat::pp3(xyz$x, xyz$y, xyz$z, box) # Create 3d spatial object
+    box <- spatstat.geom::box3(xlim, ylim, zlim, unitname = "mm")
+    spatial_data <- spatstat.geom::pp3(xyz$x, xyz$y, xyz$z, box) # Create 3d spatial object
 
   } else {
     #xyz <- as_tibble(data) %>%
     #  select(x = x3, y = y3, z = z3)
 
-    xyz <- input_data[[c("x1", "y1", "z1")]]
+    xyz <- input_data[,c("x3", "y3", "z3")]
     colnames(xyz) <- c("x", "y", "z")
 
     xlim <- c(min(xyz$x), max(xyz$x))
     ylim <- c(min(xyz$y), max(xyz$y))
     zlim <- c(min(xyz$z), max(xyz$z))
 
-    box <- spatstat::box3(xlim, ylim, zlim, unitname = "mm")
-    spatial_data <- spatstat::pp3(xyz$x, xyz$y, xyz$z, box) # Create 3d spatial object
+    box <- spatstat.geom::box3(xlim, ylim, zlim, unitname = "mm")
+    spatial_data <- spatstat.geom::pp3(xyz$x, xyz$y, xyz$z, box) # Create 3d spatial object
 
   }
 

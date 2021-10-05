@@ -31,9 +31,7 @@ save_3d_image("trial")
 
 # Statistics ----------------------------
 
-example_circular <- extract_spatial_data(example_c, mark_type = "circular", plot_results == TRUE)
-example_linear <- extract_spatial_data(example_l, "linear")
+example_circular <- extract_spatial_data(example_c, mark_type = "circular", plot_results = TRUE)
+example_linear <- extract_spatial_data(example_l, "linear", plot_results = TRUE)
 
-#extract_spatial_data(data = example_c,
-#                     marK_type = "circular",
-#                     plot_results == TRUE)
+perform_CSR_analyses(example_circular, n_permutations = 200)
