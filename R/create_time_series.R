@@ -38,7 +38,7 @@ create_time_series <- function(
 
   # return histogram
 
-  time_series <- data.frame(sequence = ts$total_line, frequencies = ts$series)
+  time_series <- data.frame(Sequence = ts$total_line, Frequencies = ts$series)
 
   return(time_series)
 

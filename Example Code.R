@@ -137,9 +137,21 @@ t3 <- load_marks(
   "circular", plot = FALSE
 )
 
-create_time_series(h = h1, f = f1, r = r1, t = t1)
-add_time_series(h = h2, f = f2, r = r2, t = t2)
-add_time_series(h = h3, f = f3, r = r3, t = t3)
+time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
+time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2)
+time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3)
+
+series_database <- rbind(time_series_1, time_series_2, time_series_3)
+series_database$Sample <- as.factor(
+  c(
+    rep("Series_1", nrow(time_series_1)),
+    rep("Series_2", nrow(time_series_2)),
+    rep("Series_3", nrow(time_series_3))
+  )
+)
+
+time_series_clustering(series_database)
+
 
 #
 
