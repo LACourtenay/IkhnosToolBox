@@ -3,7 +3,9 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
                              plot_colours = NULL,
                              point_size = 2) {
 
-  if(!is.matrix(data)) {
+  if(missing(data)) {
+    return(warning("The user has not specified the data to be used for tSNE calculations"))
+  } else if(!is.matrix(data)) {
     return(warning("Input data must be in a numerical matrix format"))
   }
 
