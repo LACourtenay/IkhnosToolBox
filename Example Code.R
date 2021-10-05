@@ -55,7 +55,20 @@ group_labels <- as.factor(c(
 
 tsne_calculation(sample1_sample2, group_labels)
 
+# 1st note - X11 is platform specific!
+# 2nd not - unsupervised approaches for tsne?????
+
 tsne_calculation(sample1_sample2)
+
+#
+
+# Wavelet analysis ------------------------
+
+example_time_series <- two_sample_histogram_distributions(
+  example_circular, example_linear,
+  "circular", "linear",
+  "x", "femur"
+)
 
 #
 
