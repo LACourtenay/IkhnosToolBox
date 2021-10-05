@@ -238,3 +238,19 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
   ))
 
 }
+
+calc_mean<-function(target){
+  x = numeric()
+  y = numeric()
+  for(i in 1:length(target)){
+    y = c(y, sin(target[i][[1]]))
+    x = c(x, cos(target[i][[1]]))
+    Y = sum(y)/length(target) # B1
+    X = sum(x)/length(target) # A1
+    r = sqrt((X^2) + (Y^2)) # equivalent to rbar
+    cosa = X/r
+    sina = Y/r
+    mr = atan2(sina,cosa) # equivalent to tbar
+  }
+  return(mr)
+}

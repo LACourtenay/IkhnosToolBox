@@ -78,6 +78,34 @@ wavelet_analysis(
 
 #
 
+# Calculate orientations ------------------
+
+data("right_femur")
+
+example_circ_1 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\D_femur R_A_large.txt",
+  mark_type = "linear",
+  plot = FALSE
+)
+example_circ_2 <- load_marks(
+  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
+  mark_type = "linear",
+  plot = FALSE
+)
+
+right_1 <- calculate_orientations(example_circ_1, right_femur)
+right_2 <- calculate_orientations(example_circ_2, right_femur)
+
+descriptive_circular_analysis(right_1)
+descriptive_circular_analysis(right_2)
+
+preferential_orientation_test(right_1)
+preferential_orientation_test(right_2)
+
+compare_two_sample_orientations(right_1, right_2)
+
+#
+
 # skeletal profile analysis ------------------
 
 # series 1
@@ -152,6 +180,6 @@ series_database$Sample <- as.factor(
 
 time_series_clustering(series_database)
 
-
 #
+
 
