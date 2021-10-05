@@ -254,3 +254,66 @@ calc_mean<-function(target){
   }
   return(mr)
 }
+
+CosSinUniScores<-function(target) {
+  N = length(target)
+  ranks = rank(target, ties.method= "random")
+  CosUniScores = cos(ranks*2*pi/N)
+  SinUniScores = sin(ranks*2*pi/N)
+  return(list(CosUniScores, SinUniScores))
+}
+
+WgVal<-function(CSUScores, ndat, g) {
+  CosUScores = CSUScores[[1]]
+  SinUScores = CSUScores[[2]]
+  N = length(CosUScores)
+  ndatcsum = cumsum(ndat)
+  Wg = 0
+  for (k in 1:g) {
+    CosUScoresk = 0 ; SinUScoresk = 0
+    if (k==1)
+    { low = 0 } else
+      if (k > 1)
+      { low = ndatcsum[k - 1] }
+    for (j in 1:ndat[k]) {
+      CosUScoresk[j] = CosUScores[j+low] ; SinUScoresk[j] = SinUScores[j+low]
+    }
+    sumCkSq = (sum(CosUScoresk))**2
+    sumSkSq = (sum(SinUScoresk))**2
+    Wg = Wg+(sumCkSq+sumSkSq)/ndat[k] }
+  Wg = 2*Wg
+  return(Wg)
+}
+
+WgTestRand<-function(CSUScores, ndat, g, NR) {
+  CosUScores = CSUScores[[1]]
+  SinUScores = CSUScores[[2]]
+  N = length(CosUScores)
+  ndatcsum = cumsum(ndat)
+  WgObs = WgVal(CSUScores, ndat, g)
+  nxtrm = 1
+  ind = seq(1, N)
+  for (r in 1:NR) {
+    CosUScoresRand = 0; SinUScoresRand = 0
+    randind = sample(ind)
+    for (k in 1:g) {
+      CosUScoresk = 0 ; SinUScoresk = 0
+      if (k==1)
+      { low = 0 } else
+        if (k > 1)
+        { low = ndatcsum[k - 1] }
+      for (j in 1:ndat[k]) {
+        CosUScoresk[j] = CosUScores[randind[j+low]]
+        SinUScoresk[j] = SinUScores[randind[j+low]] }
+      CosUScoresRand = c(CosUScoresRand, CosUScoresk)
+      SinUScoresRand = c(SinUScoresRand, SinUScoresk) }
+    CosUScoresRand = CosUScoresRand[-1]
+    SinUScoresRand = SinUScoresRand[-1]
+    CSUScoresRand = list(CosUScoresRand, SinUScoresRand)
+    WgRand = WgVal(CSUScoresRand, ndat, g)
+    if (WgRand >= WgObs)
+    { nxtrm = nxtrm+1 }
+  }
+  pval = nxtrm/(NR+1)
+  return(pval)
+}
