@@ -2,14 +2,19 @@
 
 create_time_series <- function(
   h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, mc = NULL,
-  colour = "black"
+  colour = "black",
+  create_external_plot = TRUE
 ) {
 
   ts <- extract_ts_data(h = h, f = f, r = r, t = t, mt = mt, mc = mc)
 
   # figure
 
-  X11(width = 15, height = 7.5); par(mar = c(5.1, 5, 4.1, 2.))
+  if(create_external_plot == TRUE) {
+    X11(width = 15, height = 7.5); par(mar = c(5.1, 5, 4.1, 2.))
+  } else {
+    par(mar = c(5.1, 5, 4.1, 2.))
+  }
 
   plot(ts$total_line, ts$percentages, type = "l",
        ylim = ts$y_lim, lwd = 1, col = colour, ylab = "", xlab = "")

@@ -1,7 +1,8 @@
 
 tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexity = 0,
                              plot_colours = NULL,
-                             point_size = 2) {
+                             point_size = 2,
+                             create_external_plot = TRUE) {
 
   if(missing(data)) {
     return(warning("The user has not specified the data to be used for tSNE calculations"))
@@ -133,6 +134,10 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
     ) +
     ggplot2::geom_vline(xintercept = 0, colour = "black", size = 0.5, linetype = "dashed") +
     ggplot2::geom_hline(yintercept = 0, colour = "black", linetype = "dashed", size = 0.5)
+
+  if (create_external_plot == TRUE) {
+    X11(); tsne_plot
+  }
 
   return(list(
     tsne_plot_object = tsne_plot,

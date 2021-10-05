@@ -1,5 +1,6 @@
 
-calculate_orientations <- function(linear_data, bone) {
+calculate_orientations <- function(linear_data, bone,
+                                   create_external_plot = TRUE) {
 
   # maybe to ensure that data is linear, a linear_data class should be created...?
 
@@ -61,7 +62,12 @@ calculate_orientations <- function(linear_data, bone) {
   bone_conv <- alphahull::ashape(bone_outline,
                                  alpha = 2.5)
 
-  X11(width = 10, height = 10)
+  if (create_external_plot == TRUE) {
+    X11(width = 10, height = 10)
+  } else {
+    par(mfrow = c(1,2))
+  }
+
   plot(bone_conv$edges[,4], bone_conv$edges[,3], pch = 19, asp = 1, cex = 0.1)
   segments(adjusted_threed[adjusted_threed$Position == "start", 2],
            adjusted_threed[adjusted_threed$Position == "start", 1],
@@ -87,7 +93,10 @@ calculate_orientations <- function(linear_data, bone) {
 
   circ <- c(circ_obj, circ_2)
 
-  X11(width = 10, height = 10)
+  if (create_external_plot == TRUE) {
+    X11(width = 10, height = 10)
+  }
+
   circular::rose.diag(circ, bins = 16, col = "darkgrey", cex = 1.5, prop = 1.3)
   suppressMessages(
     suppressWarnings(

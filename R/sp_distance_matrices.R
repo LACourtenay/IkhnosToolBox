@@ -1,6 +1,7 @@
 
 sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
-                              name_1, name_2) {
+                              name_1, name_2,
+                              create_external_plot = TRUE) {
 
 
   `%!in%` = Negate(`%in%`)
@@ -13,18 +14,26 @@ sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
   name_1 <- as.character(name_1)
   name_2 <- as.character(name_2)
 
-
   pd_1 <- spatstat.geom::nndist(spatial_object_1)
   pd_2 <- spatstat.geom::nndist(spatial_object_2)
 
-  X11(); par(mfrow = c(1,2))
+  if(create_external_plot == TRUE) {
+    X11(); par(mfrow = c(1,2))
+  } else {
+    par(mfrow = c(1,2))
+  }
+
   plot(pd_1, pch = 19, xlab = "Nearest Neighbour Distance", ylab = "Index",
        main = paste("Distance between ", name_1, sep = ""))
   plot(pd_2, pch = 19, xlab = "Nearest Neighbour Distance", ylab = "Index",
        main = paste("Distance between ", name_2, sep = ""))
   par(mfrow = c(1,1))
 
-  X11(); par(mfrow = c(1,1))
+  if(create_external_plot == TRUE) {
+    X11(); par(mfrow = c(1,1))
+  } else {
+    par(mfrow = c(1,1))
+  }
 
   cd <- spatstat.geom::nndist(
     spatstat.geom::crossdist(spatial_object_1, spatial_object_2)

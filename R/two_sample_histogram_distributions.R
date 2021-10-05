@@ -4,7 +4,8 @@
 two_sample_histogram_distributions <- function(
   group_1, group_2,
   sample_1_name, sample_2_name,
-  dimension, bone_type
+  dimension, bone_type,
+  create_external_plot = TRUE
 ) {
 
   `%!in%` = Negate(`%in%`)
@@ -126,14 +127,26 @@ two_sample_histogram_distributions <- function(
   comparison <- rbind(group_1_coords, group_2_coords)
   comparison$Sample <- as.factor(comparison$Sample)
 
-  sm::sm.density.compare(comparison[,1],
-                         comparison$Sample,
-                         xlim = x_lim,
-                         col = c("black", "red"),
-                         lwd = 2,
-                         xlab = paste(
-                           dimension, " axis", sep = ""
-                         ))
+  if (create_external_plot == TRUE) {
+    X11(); sm::sm.density.compare(comparison[,1],
+                                  comparison$Sample,
+                                  xlim = x_lim,
+                                  col = c("black", "red"),
+                                  lwd = 2,
+                                  xlab = paste(
+                                    dimension, " axis", sep = ""
+                                  ))
+  } else {
+    sm::sm.density.compare(comparison[,1],
+                           comparison$Sample,
+                           xlim = x_lim,
+                           col = c("black", "red"),
+                           lwd = 2,
+                           xlab = paste(
+                             dimension, " axis", sep = ""
+                           ))
+  }
+
   title(main = paste(
     "Comparison between: ", sample_1_name, " and ", sample_2_name, sep = ""
   ))

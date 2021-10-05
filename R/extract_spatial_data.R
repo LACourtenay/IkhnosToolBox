@@ -17,7 +17,8 @@
 extract_spatial_data <- function(input_data,
                                  mark_type = "circular",
                                  print_summary = TRUE,
-                                 plot_results = FALSE) {
+                                 plot_results = FALSE,
+                                 create_external_plot = TRUE) {
 
   if(missing(input_data)) {
     return(warning("Warning no input data"))
@@ -62,8 +63,14 @@ extract_spatial_data <- function(input_data,
   }
 
   if (plot_results == TRUE) {
-    plot(spatial_data, main = "",
-         pch = 1, bg = "white", cex = 1.2)
+    if (create_external_plot == TRUE) {
+      X11(); plot(spatial_data, main = "",
+                  pch = 1, bg = "white", cex = 1.2)
+    } else {
+      plot(spatial_data, main = "",
+           pch = 1, bg = "white", cex = 1.2)
+    }
+
   }
 
   return(spatial_data) # check whether the box is necessary

@@ -1,6 +1,7 @@
 
 perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
-                                 pcf_method = "c") {
+                                 pcf_method = "c",
+                                 create_external_plot = TRUE) {
 
   `%!in%` = Negate(`%in%`)
 
@@ -55,9 +56,13 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
 
   for (i in 1:2) {
 
-    X11(
-      width = 15, height = 6.5
-    ); par(mfrow = c(1,3))
+    if (create_external_plot == TRUE) {
+      X11(
+        width = 15, height = 6.5
+      ); par(mfrow = c(1,3))
+    } else {
+      par(mfrow = c(1,3))
+    }
 
     if ( i == 1) {
       plot(Ke, main = "Ripley's K f(x)")
@@ -73,8 +78,10 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
 
   par(mfrow = c(1,1))
 
-  X11(); plot(PCF_plot, main = "K Pair Correlation Function")
-
-  par(mfrow = c(1,1))
+  if(create_external_plot == TRUE) {
+    X11(); plot(PCF_plot, main = "K Pair Correlation Function")
+  } else {
+    plot(PCF_plot, main = "K Pair Correlation Function")
+  }
 
 }

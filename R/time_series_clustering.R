@@ -1,5 +1,6 @@
 
-time_series_clustering <- function(series_dataframe) {
+time_series_clustering <- function(series_dataframe,
+                                   create_external_plot = TRUE) {
 
   `%!in%` = Negate(`%in%`)
 
@@ -38,15 +39,26 @@ time_series_clustering <- function(series_dataframe) {
   distance_matrix <- as.dist(distance_matrix)
   clustering_data <- hclust(distance_matrix, method = "ward.D2")
 
-  X11()
-  gridExtra::grid.arrange(
-    factoextra::fviz_dend(clustering_data , cex = 0.5, k = 2,
-                          k_colors = "jco",
-                          type = "circular"),
-    factoextra::fviz_dend(clustering_data , k = 2, cex=1.9,
-                          k_colors = "jco",
-                          type = "phylogenic", repel = TRUE),
-    ncol = 2
-  )
+  if (create_external_plot == TRUE) {
+    X11(); gridExtra::grid.arrange(
+      factoextra::fviz_dend(clustering_data , cex = 0.5, k = 2,
+                            k_colors = "jco",
+                            type = "circular"),
+      factoextra::fviz_dend(clustering_data , k = 2, cex=1.9,
+                            k_colors = "jco",
+                            type = "phylogenic", repel = TRUE),
+      ncol = 2
+    )
+  } else {
+    gridExtra::grid.arrange(
+      factoextra::fviz_dend(clustering_data , cex = 0.5, k = 2,
+                            k_colors = "jco",
+                            type = "circular"),
+      factoextra::fviz_dend(clustering_data , k = 2, cex=1.9,
+                            k_colors = "jco",
+                            type = "phylogenic", repel = TRUE),
+      ncol = 2
+    )
+  }
 
 }

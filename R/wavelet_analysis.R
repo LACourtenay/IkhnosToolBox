@@ -1,7 +1,8 @@
 
 wavelet_analysis <- function (first_ts, second_ts, sample_1_name, sample_2_name,
                               n_iterations = 10000,
-                              x_lab = "Inter-epiphysis distance") {
+                              x_lab = "Inter-epiphysis distance",
+                              create_external_plot = TRUE) {
 
   if(missing(first_ts) | missing(second_ts)) {
     return(warning(
@@ -29,9 +30,17 @@ wavelet_analysis <- function (first_ts, second_ts, sample_1_name, sample_2_name,
                      second_ts,
                      nrands = n_iterations)
 
-  X11(width = 30, height = 20); par(
-    oma = c(0, 0, 0, 2), mar = c(5.1, 4.1, 5.1, 5.1)
-  ); biwavelet::plot.biwavelet(
+  if(create_external_plot == TRUE) {
+    X11(width = 30, height = 20); par(
+      oma = c(0, 0, 0, 2), mar = c(5.1, 4.1, 5.1, 5.1)
+    )
+  } else {
+    par(
+      oma = c(0, 0, 0, 2), mar = c(5.1, 4.1, 5.1, 5.1)
+    )
+  }
+
+  biwavelet::plot.biwavelet(
     wavelet_coh, plot.phase = TRUE, lty.coi = 1,
     col.coi = "grey", lwd.coi = 2, tol = 0.6,
     lwd.sig = 5, arrow.lwd = 0.03, arrow.len = 0.12,

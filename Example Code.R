@@ -18,6 +18,7 @@ example_1 <- load_marks(
   mark_type = "circular",
   plot = TRUE
 )
+
 example_2 <- load_marks(
   "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
   mark_type = "linear",
@@ -31,11 +32,11 @@ save_3d_image("trial")
 
 # Statistics ----------------------------
 
-example_circular <- extract_spatial_data(example_1, mark_type = "circular", plot_results = TRUE)
-example_linear <- extract_spatial_data(example_2, "linear", plot_results = TRUE)
+example_circular <- extract_spatial_data(example_1, mark_type = "circular")
+example_linear <- extract_spatial_data(example_2, "linear")
 
-perform_CSR_analyses(example_circular, n_permutations = 200)
-perform_CSR_analyses(example_linear, n_permutations = 200)
+perform_CSR_analyses(example_circular, n_permutations = 101)
+perform_CSR_analyses(example_linear, n_permutations = 101)
 
 sp_distance_matrix(example_circular)
 sp_distance_matrices(example_circular, example_linear,
@@ -73,7 +74,7 @@ example_time_series <- two_sample_histogram_distributions(
 wavelet_analysis(
   example_time_series$first_sample_ts,
   example_time_series$second_sample_ts,
-  "circular", "linear"
+  "circular", "linear", create_external_plot = FALSE
 )
 
 #
@@ -166,8 +167,8 @@ t3 <- load_marks(
 )
 
 time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
-time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2)
-time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3)
+time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, colour = "red")
+time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
 
 series_database <- rbind(time_series_1, time_series_2, time_series_3)
 series_database$Sample <- as.factor(
