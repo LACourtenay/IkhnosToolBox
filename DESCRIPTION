@@ -4,7 +4,7 @@ Title: R Tool Box for the Ikhnos Taphonomic Software
 Version: 0.1.0
 Authors@R: c(
     person("Lloyd", "Courtenay", email = "ladc1995@gmail.com", role = c("aut", "cre")),
-    person("Julia", "Aramendi", email = "juliaram@usal.es", role = "aut"),
+    person("Julia", "Aramendi", email = "julia.aramendi@gmail.com", role = "aut"),
     person("Manuel", "Dominguez-Rodrigo", email = "m.dominguez.rodrigo@gmail.com", role = "ctb")
     )
 Description: Group of R functions for the statistical analysis of data derived from the
