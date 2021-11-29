@@ -1,17 +1,21 @@
 
-#' Prepare data for spatial analysis
+#' Prepare data for spatial analysis.
 #'
-#' The present function is used to prepare data for further spatial analysis
+#' @description The present function is used to prepare data for further spatial
+#' analysis.
 #'
-#' @param input_data a data.frame object containing spatial coordinates
-#' @param mark_type a string specifying whether marks are "circular" or "linear"
-#' @param print_summary a boolean option to print a summary of data
-#' @param plot_results a boolean option to plot the spatial information
+#' @param input_data A data frame containing spatial coordinates.
+#' @param mark_type A string specifying whether marks are "circular" or "linear".
+#' @param print_summary A boolean TRUE or FALSE option (default = TRUE) to print
+#' a summary of the data included in the spatial object.
+#' @param plot_results A boolean TRUE or FALSE option (default = FALSE) to plot
+#' the spatial information.
 #'
-#' @return A spatial object for statistical analyses
+#' @return A spatial object for statistical analyses.
 #'
 #' @examples
-#' example_data <- load_marks(mark_type = "circular")
+#' data(femur_right_circular1) #COMPROBAR ESTO
+#' example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
 #' example_sp_object <- extract_spatial_data(example_data, "circular")
 
 extract_spatial_data <- function(input_data,
@@ -21,11 +25,11 @@ extract_spatial_data <- function(input_data,
                                  create_external_plot = TRUE) {
 
   if(missing(input_data)) {
-    return(warning("Warning no input data"))
+    return(stop("Warning no input data"))
   }
 
   if (mark_type != "circular" & mark_type != "linear") {
-    return(warning("Please select between circular or linear mark types"))
+    return(stop("Please select between circular or linear mark types"))
   }
 
   if (mark_type == "circular") {

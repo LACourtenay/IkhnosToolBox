@@ -1,4 +1,37 @@
 
+#' Calculation of orientation of linear marks.
+#'
+#' @description Function to conduct orientation analyses of scores and/or cut
+#' marks.
+#'
+#' @param linear_data A string containing the path of the Ikhnos product file     #COMO HACER PARA QUE LEA LOS RDA METIDOS EN DATA?
+#' containing linear data (e.g., scores or cut marks). If no file name is
+#' specified, then a popup window will appear allowing the user to locate the
+#' file in their system.
+#' @param bone An IkhnosToolBox data object (e.g., data(left_femur)) containing
+#' the 3d model of the bone being studied.
+#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' to create two popup windows; one for the visualisation of the location of the
+#' linear marks on the specified bone; and a second one with the rose diagram
+#' based on the orientations of the marks.
+#'
+#' @return A \code{circular} object containing the angles calculated between
+#' the bone long axis and each linear mark. If create_external_plot = TRUE, then
+#' two popup windows are created for the rose diagram and the visualisation
+#' of the linear marks on the specified bone.
+#'
+#' @seealso \code{\link{load_marks}}.
+#'
+#'
+#' @examples
+#' data("right_femur")
+#' data("femur_right_linear1") #COMPROBAR ESTO
+#' data("femur_right_linear2") #COMPROBAR ESTO
+#' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_calculate_orientations_1 <- calculate_orientations(example_circ_1, right_femur)
+#' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
+
 calculate_orientations <- function(linear_data, bone,
                                    create_external_plot = TRUE) {
 
@@ -7,7 +40,7 @@ calculate_orientations <- function(linear_data, bone,
   `%!in%` = Negate(`%in%`)
 
   if (missing(bone)) {
-    return(warning(
+    return(stop(
       paste0(
         "\nThe bone is missing!\nThe user must load the bone where marks are located",
         " using the data() function, so as to correctly calculate mark orientations"
@@ -16,13 +49,13 @@ calculate_orientations <- function(linear_data, bone,
   }
 
   if(missing(linear_data)) {
-    return(warning(
+    return(stop(
       "No data has been introduced!"
     ))
   }
 
   if ("x2" %!in% colnames(linear_data)) {
-    return(warning(
+    return(stop(
       "Data provided are not linear marks"
     ))
   }

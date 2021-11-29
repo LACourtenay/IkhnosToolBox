@@ -1,4 +1,44 @@
 
+#' Creation of multiple time series plot.
+#'
+#' @description The present function is used to generate a plot including the
+#' mark frequencies on several bone elements and provide the basis for the
+#' addition of further samples.
+#'
+#' @param h A data frame containing the spatial coordinates representing the
+#' marks in the first humerus sample.
+#' @param f A data frame containing the spatial coordinates representing the
+#' marks in the first femur sample.
+#' @param r A data frame containing the spatial coordinates representing the
+#' marks in the first radius sample.
+#' @param t A data frame containing the spatial coordinates representing the
+#' marks in the first tibia sample.
+#' @param mt A data frame containing the spatial coordinates representing the
+#' marks in the first metatarsus sample.
+#' @param mc A data frame containing the spatial coordinates representing the
+#' marks in the first metacarpus sample.
+#' @param colour A lower case string specifying the colour of points and lines
+#' in the plot to represent the first set of samples.
+#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' to create a popup window with the plot for mark frequency for all the samples.
+#'
+#' @return A data frame including the sequence and frequencies of all the samples.
+#' If create_external_plot = TRUE, then the function returns a popup
+#' window with a single plot showing the mark frequencies for all the elements.
+#'
+#' @seealso \code{\link{add_time_series}}, \code{\link{load_marks}}.
+#'
+#'
+#' @examples                         #DA PROBLEMAS CON mt - HE VISTO UNOS FALLOS EN MISC FUNCTIONS: PONIA MC CUANDO DEBERÍA PONER MT, LO HE CAMBIADO Y SIGUE SIN FUNCIONAR - EL RESTO DE HUESOS FUNCIONA BIEN
+#' data(humerus_right_circular1)
+#' data(femur_right_circular1)
+#' data(radius_right_circular1)
+#' data(tibia_right_circular1)  #COMPROBAR ESTO
+#' h1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+#' f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+#' r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+#' t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+#' time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
 
 create_time_series <- function(
   h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, mc = NULL,

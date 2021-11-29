@@ -1,11 +1,36 @@
 
+#' Pair comparison for homogeneity on two orientation patterns.
+#'
+#' @description Function to compare the orientation patterns observed in two
+#' different samples of linear marks (scores and/or cut marks)using the
+#' randomised Mardia-Watson-Wheeler test.
+#'
+#' @param sample_1 A circular object containing the angles calculated between
+#' the bone long axis and each linear mark in the first dataset.
+#' @param sample_2 A circular object containing the angles calculated between
+#' the bone long axis and each linear mark in the second dataset.
+#'
+#' @return A list containing the results obtained for the Mardia-Watson-Wheeler
+#' test and the associated p value.
+#'
+#' @seealso \code{\link{calculate_orientations}}.
+#'
+#' @examples
+#' data("femur_right_linear1") #COMPROBAR ESTO
+#' data("femur_right_linear2") #COMPROBAR ESTO
+#' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_calculate_orientations_1 <- calculate_orientations(example_circ_1, right_femur)
+#' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
+#' example_comp_orientations <- compare_two_sample_orientations(example_calculate_orientations_1, example_calculate_orientations_2)
+
 compare_two_sample_orientations <- function (sample_1, sample_2) {
 
   `%!in%` = Negate(`%in%`)
 
   if("circular" %!in% class(sample_1) |
      "circular" %!in% class(sample_2)) {
-    return(warning(
+    return(stop(
       "Input to this function must be two objects of a 'circular' type"
     ))
   }

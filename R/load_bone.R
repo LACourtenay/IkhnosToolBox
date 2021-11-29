@@ -1,14 +1,15 @@
 
-#' Load bone for visualization.
+#' Load bone for visualisation.
 #'
-#' The present function creates a 3D popup window visualizing the bone under
-#' study. This can then be combined with functions such as \code{load_marks}
-#' to visualize marks on the 3D model, and \code{save_3d_image} to
-#' save the window to a *.png file.
+#' @description The present function creates a 3D popup window visualising
+#' the bone under study. This can then be combined with functions such as
+#' \code{load_marks} to visualise marks on the 3D model, and
+#' \code{save_3d_image}nto save the window to a *.png file.
 #'
-#' @param bone An IkhnosToolBox data object (e.g. data(left_femur)) containing the 3d model of the bone being studied.
+#' @param bone An IkhnosToolBox data object (e.g. data(left_femur)) containing
+#' the 3d model of the bone being studied.
 #'
-#' @return A 3D popup window
+#' @return A 3D popup window with the selected bone mesh points.
 #'
 #' @seealso \code{\link{load_marks}}, \code{\link{save_3d_image}}.
 #'
@@ -24,11 +25,11 @@ load_bone <- function(bone_data) {
   #`%!in%` = Negate(`%in%`)
 
   if(missing(bone_data)) {
-    return(warning("Bone is missing - please select bone to study"))
+    return(stop("Bone is missing - please select bone to study"))
   }
 
   if(dim(bone_data)[2] < 3 | dim(bone_data)[2] > 3 ) {
-    return(warning("Invalid bone. Please insert one of the bones provided by the data() function."))
+    return(stop("Invalid bone. Please insert one of the bones provided by the data() function."))
   }
 
   #if(missing(side)) {

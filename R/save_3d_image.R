@@ -1,29 +1,32 @@
 
-#' Saves 3D visualization.
+#' Save 3D visualisation.
 #'
-#' Function to save visualization of data.
+#' @description Function to save visualisation of data.
 #'
-#' @param file_name a string specifying the file name where the .png image will be saved.
+#' @param file_name A string specifying the file name where the *.png
+#' image will be saved.
 #'
-#' @return Saves the visualized 3D window as a .png file.
+#' @return Saves the visualised 3D window as a *.png file.
 #'
 #' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}}.
 #'
 #' @examples
-#' data(left_femur)
-#' load_bone(left_femur)
-#' load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
-#' load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
+#' data(right_femur)
+#' data(femur_right_circular1) #COMPROBAR ESTO
+#' data(femur_right_linear1) #COMPROBAR ESTO
+#' load_bone(right_femur)
+#' load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red") #ESTO DA ERROR POR NO CARGAR EL RDA
 #' save_3d_image("my_first_plot")
 
 save_3d_image <- function(file_name) {
 
   if(rgl::rgl.cur() == 0) {
-    return(warning("No visualisation device is currently active or open."))
+    return(stop("No visualisation device is currently active or open."))
   }
 
   if (!is.character(file_name)) {
-    return(warning("Please insert a valid file name to save the image"))
+    return(stop("Please insert a valid file name to save the image"))
   }
 
   suff <- substr(file_name, nchar(file_name)-4+1, nchar(file_name))

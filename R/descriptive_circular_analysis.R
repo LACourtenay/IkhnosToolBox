@@ -1,10 +1,39 @@
 
+#' Descriptive circular analysis.
+#'
+#' @description The present function contains several parameters to characterise
+#' the location and variability of linear marks along the bone, including
+#' normality distribution tests such as skewness (measure of asymmetry) and
+#' kurtosis (measure of tailedness and peakedness), circular variance and
+#' dispersion, and the orientation of the radians and degrees.
+#'
+#' @param circular_object A circular object containing the angles calculated
+#' between the bone long axis and each linear mark.
+#'
+#' @return A list with the results obtained for the standarised measures of
+#' Skewness and Kurtosis, the sample circular variance and dispersion,
+#' and the central orientation radians and degrees.
+#'
+#' @seealso \code{\link{calculate_orientations}}.
+#'
+#'
+#' @examples
+#' data("femur_right_linear1") #COMPROBAR ESTO
+#' data("femur_right_linear2") #COMPROBAR ESTO
+#' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_calculate_orientations_1 <- calculate_orientations(example_circ_1, right_femur)
+#' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
+#' example_circ_analysis1 <- descriptive_circular_analysis(example_calculate_orientations_1)
+#' example_circ_analysis2 <- descriptive_circular_analysis(example_calculate_orientations_2)
+
+
 descriptive_circular_analysis <- function(circular_object) {
 
   `%!in%` = Negate(`%in%`)
 
   if("circular" %!in% class(circular_object)) {
-    return(warning(
+    return(stop(
       "Input to this function must be of a 'circular' type"
     ))
   }

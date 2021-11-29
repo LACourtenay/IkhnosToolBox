@@ -1,5 +1,36 @@
 
-# documentation should specify upper and lower case words etc.
+#' Create pair histograms.
+#'
+#' @description The present function is used to compare the frequency of marks
+#' along a specific bone axis between two samples.
+#'
+#' @param group_1 A pp3 object containing a 3-dimensional point pattern.
+#' @param group_2 A pp3 object containing a second 3-dimensional point pattern.
+#' @param sample_1_name A string to define the label of \code{group_1}.
+#' @param sample_2_name A string to define the label of \code{group_2}.
+#' @param dimension A character to define the axis;\code{x} refers to proximal-
+#' distal axis,\code{y} to the lateral-medial axis, and \code{z} to the caudal-
+#' cranial axis.
+#' @param bone_type A string to define the element; possible bones are
+#' \code{femur}, \code{humerus}, \code{metacarpus}, \code{radius}, \code{tibia},
+#' \code{metatarsus}.
+#' @param create_external_plot A boolean TRUE or FALSE option (default = TRUE)
+#' to create a popup window with the plot for the distribution of both samples
+#'
+#' @return A \code{list} containing the number of breaks and counts of both
+#' samples.
+#'
+#' @seealso \code{\link{wavelet_analysis}}
+#'
+#' @examples
+#' data(femur_right_circular1) #COMPROBAR ESTO
+#' data(femur_right_linear1) #COMPROBAR ESTO
+#' example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_sp_object1 <- extract_spatial_data(example_data1, "circular")
+#' example_sp_object2 <- extract_spatial_data(example_data2, "circular")
+#' example_time_series <- two_sample_histogram_distributions(example_sp_object1, example_sp_object2,"circular", "linear","x", "femur")
+
 
 two_sample_histogram_distributions <- function(
   group_1, group_2,
@@ -11,36 +42,36 @@ two_sample_histogram_distributions <- function(
   `%!in%` = Negate(`%in%`)
 
   if(missing(group_1) | missing(group_2)) {
-    return(warning(
+    return(stop(
       "This function is for the comparison of two samples, yet only one has been provided"
     ))
   } else if (class(group_1)[1] != "pp3" | class(group_2)[1] != "pp3") {
-    return(warning("Invalid spatial object"))
+    return(stop("Invalid spatial object"))
   }
 
   if(missing(sample_1_name)) {
-    return(warning("Missing sample 1 name"))
+    return(stop("Missing sample 1 name"))
   }
 
   if(missing(sample_2_name)) {
-    return(warning("Missing sample 2 name"))
+    return(stop("Missing sample 2 name"))
   }
 
   possible_dimensions <- c("x","y","z")
 
   if(missing(dimension)) {
-    return(warning("The dimension under study must be specified"))
+    return(stop("The dimension under study must be specified"))
   } else if (dimension %!in% possible_dimensions) {
-    return(warning("Please choose 'x', 'y' or 'z' as a possible dimension"))
+    return(stop("Please choose 'x', 'y' or 'z' as a possible dimension"))
   }
 
   possible_bones <- c("femur","humerus","metacarpus","radius",
                       "tibia","metatarsus")
 
   if(missing(bone_type)) {
-    return(warning("The user must specify the bone under study"))
+    return(stop("The user must specify the bone under study"))
   } else if (bone_type %!in% possible_bones) {
-    return(warning("Invalid bone type"))
+    return(stop("Invalid bone type"))
   }
 
   if (dimension == "x") {

@@ -1,37 +1,80 @@
 
-tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexity = 0,
+#' Calculate a t-Distributed Stochastic Neighbor Embedding (t-SNE).
+#'
+#' @description The present function provides a data exploration and
+#' visualisation technique based on a non-linear dimensionality reduction
+#' algorithm that constructs a low dimensional embedding of high-dimensional
+#' data for the identification of patterns and trends in the data.
+#'
+#' @param data An array containing the 3-dimensional points.
+#' @param labels A factor containing the group association for each dataset.
+#' @param n_iterations A positive, non-zero integer to define the number of
+#' permutations for optimization (default = 1000).
+#' @param perplexity A positive, non-zero integer to define the optimal number
+#' of neighbors. Larger datasets require a larger perplexity, typical values are
+#' between 5 and 50. By default the optimal parameter is calculated for each
+#' dataset.
+#' @param plot_colours A character vector to assign a specific colour to each
+#' label.
+#' @param point_size A non-negative integer to define the size of the points in
+#' the plot.
+#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' to generate an external window for the t-SNE plot.
+#'
+#'
+#' @return A \code{data.frame} object containing the x, y coordinates and the
+#' associated group represented in the \code{tsne_plot_object} that appears in
+#' a popup window if create_external_plot = TRUE.
+#'
+#' @seealso \code{\link{Rtsne}}
+#'
+#' @examples
+#' data(femur_right_circular1) #COMPROBAR ESTO
+#' data(femur_right_linear1) #COMPROBAR ESTO
+#' example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' example_sp_object1 <- extract_spatial_data(example_data1, "circular")
+#' example_sp_object2 <- extract_spatial_data(example_data2, "circular")
+#' sample1_coords <- as.matrix(example_sp_object1)
+#' sample2_coords <- as.matrix(example_sp_object2)
+#' sample1_sample2 <- rbind(sample1_coords, sample2_coords)
+#' group_labels <- as.factor(c(rep("circular", nrow(sample1_coords)), rep("linear", nrow(sample2_coords))))
+#' tsne_calculation(sample1_sample2, group_labels, plot_colours = c("red", "green"))
+
+
+tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexity = NULL,
                              plot_colours = NULL,
                              point_size = 2,
                              create_external_plot = TRUE) {
 
   if(missing(data)) {
-    return(warning("The user has not specified the data to be used for tSNE calculations"))
+    return(stop("The user has not specified the data to be used for tSNE calculations"))
   } else if(!is.matrix(data)) {
-    return(warning("Input data must be in a numerical matrix format"))
+    return(stop("Input data must be in a numerical matrix format"))
   }
 
-  if (perplexity == 0) {
+  if (is.null(perplexity)) {
     perplexity = dim(data)[1] ** (1/2)
   } else {
     if (perplextiy < 0) {
-      return(warning("Perplexity must be a non-negative number"))
+      return(stop("Perplexity must be a non-negative number"))
     }
   }
 
   if (n_iterations <= 0 | n_iterations %% 1 != 0) {
-    return(warning("The number of permutations must be a positive, non-zero integer"))
+    return(stop("The number of permutations must be a positive, non-zero integer"))
   }
 
   if (!is.null(plot_colours)) {
     colour_bool <- check_colours(plot_colours)
     if (FALSE %in% colour_bool) {
-      return(warning("Invalid colour provided for plot_colours"))
+      return(stop("Invalid colour provided for plot_colours"))
     }
   }
 
   if(!is.null(labels)) {
     if (nrow(data) != length(as.factor(labels))) {
-      return(warning(
+      return(stop(
         paste0(
           "Only ", length(as.factor(labels)), " labels have been provided for",
           "a set of ", nrow(data), " coordinates."
@@ -77,7 +120,7 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
     plot_colours <- c("black", "red", "blue", "orange", "darkgreen", "violetred")
 
     if (length(plot_colours) < length(levels(as.factor(labels)))) {
-      return(warning(
+      return(stop(
         paste0("This function by default provides 6 possible label colours,",
             " however the data introduced contains ",
             length(levels(as.factor(labels))), " groups.\n",
@@ -93,7 +136,7 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
   } else {
 
     if (length(plot_colours) < length(levels(as.factor(labels)))) {
-      return(warning("Insufficient label_colours arguments provided."))
+      return(stop("Insufficient label_colours arguments provided."))
     }
 
     ggplot_colours <- ggplot2::scale_color_manual(
