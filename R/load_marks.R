@@ -50,30 +50,30 @@ load_marks <- function(data, file_name = NULL, mark_type = "circular",
 
 
   if (mark_type %!in% possible_marks) {
-    return(stop("Please select between circular or linear mark types"))
+    stop("Please select between circular or linear mark types")
   }
 
   if (!is.logical(plot)) {
-    return(stop("plot parameter must be equal to TRUE or FALSE"))
+    stop("plot parameter must be equal to TRUE or FALSE")
   }
 
   possible_delims <- c(",", ";", "\t", " ")
 
   if (delim %!in% possible_delims) {
-    return(stop(cat("Invalid delimiter value. Please ensure files are seperated",
+    stop(cat("Invalid delimiter value. Please ensure files are seperated",
                     "by either commas, semi colons, tabs or spaces.",
-                    sep = " ")))
+                    sep = " "))
   }
 
   if (colour_value != "black") {
     col_bool <- check_colours(colour_value)
     if (FALSE %in% col_bool) {
-      return(stop("Invalid colour provided for the plot"))
+      stop("Invalid colour provided for the plot")
     }
   }
 
   if (!is.numeric(mark_size) | mark_size < 0) {
-    return(stop("point_size must be a positive value"))
+    stop("point_size must be a positive value")
   }
 
   if (!is.null(file_name)) {

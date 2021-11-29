@@ -30,9 +30,9 @@ compare_two_sample_orientations <- function (sample_1, sample_2) {
 
   if("circular" %!in% class(sample_1) |
      "circular" %!in% class(sample_2)) {
-    return(stop(
+    stop(
       "Input to this function must be two objects of a 'circular' type"
-    ))
+    )
   }
 
   sample_1_sym <- circular::circular(sample_1 - pi,

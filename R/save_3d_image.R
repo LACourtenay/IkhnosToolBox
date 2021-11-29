@@ -22,11 +22,11 @@
 save_3d_image <- function(file_name) {
 
   if(rgl::rgl.cur() == 0) {
-    return(stop("No visualisation device is currently active or open."))
+    stop("No visualisation device is currently active or open.")
   }
 
   if (!is.character(file_name)) {
-    return(stop("Please insert a valid file name to save the image"))
+    stop("Please insert a valid file name to save the image")
   }
 
   suff <- substr(file_name, nchar(file_name)-4+1, nchar(file_name))

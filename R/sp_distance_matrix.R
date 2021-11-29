@@ -28,7 +28,7 @@ sp_distance_matrix <- function(spatial_object, name_1 = "marks",
   `%!in%` = Negate(`%in%`)
 
   if("pp3" %!in% class(spatial_object)) {
-    return(stop("Invalid spatial object"))
+    stop("Invalid spatial object")
   }
 
   name_1 <- as.character(name_1)

@@ -40,24 +40,24 @@ calculate_orientations <- function(linear_data, bone,
   `%!in%` = Negate(`%in%`)
 
   if (missing(bone)) {
-    return(stop(
+    stop(
       paste0(
         "\nThe bone is missing!\nThe user must load the bone where marks are located",
         " using the data() function, so as to correctly calculate mark orientations"
       )
-    ))
+    )
   }
 
   if(missing(linear_data)) {
-    return(stop(
+    stop(
       "No data has been introduced!"
-    ))
+    )
   }
 
   if ("x2" %!in% colnames(linear_data)) {
-    return(stop(
+    stop(
       "Data provided are not linear marks"
-    ))
+    )
   }
 
   example_bone <- bone

@@ -25,34 +25,12 @@ load_bone <- function(bone_data) {
   #`%!in%` = Negate(`%in%`)
 
   if(missing(bone_data)) {
-    return(stop("Bone is missing - please select bone to study"))
+    stop("Bone is missing - please select bone to study")
   }
 
   if(dim(bone_data)[2] < 3 | dim(bone_data)[2] > 3 ) {
-    return(stop("Invalid bone. Please insert one of the bones provided by the data() function."))
+    stop("Invalid bone. Please insert one of the bones provided by the data() function.")
   }
-
-  #if(missing(side)) {
-  #  return(warning("Side is missing - please select laterality of bone"))
-  #}
-
-  #possible_bones <- c("femur","humerus","metacarpus","radius",
-  #                    "tibia","metatarsus")
-
-  #if (bone %!in% possible_bones) {
-  #  return(warning("Invalid bone"))
-  #}
-
-  #possible_sides <- c("left", "right")
-
-  #if (side %!in% possible_sides) {
-  #  return(warning("Invalid side"))
-  #}
-
-  # need to find a way of connecting this function to the internal documentation of the library
-
-  #a<-read.table(paste("data\\", side, "_", bone, ".txt", sep = ""), header=F, sep = "\t")
-  #data(deparse(substitute(paste0("right", "_", "femur"))))
 
   rgl::open3d()
   rgl::plot3d(bone_data[,1], bone_data[,2], bone_data[,3],

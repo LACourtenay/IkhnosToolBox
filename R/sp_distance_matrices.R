@@ -42,7 +42,7 @@ sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
 
   if("pp3" %!in% class(spatial_object_1) |
      "pp3" %!in% class(spatial_object_2)) {
-    return(stop("Invalid spatial objects"))
+    stop("Invalid spatial objects")
   }
 
   name_1 <- as.character(name_1)

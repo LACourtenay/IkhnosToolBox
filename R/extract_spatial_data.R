@@ -25,11 +25,11 @@ extract_spatial_data <- function(input_data,
                                  create_external_plot = TRUE) {
 
   if(missing(input_data)) {
-    return(stop("Warning no input data"))
+    stop("Warning no input data")
   }
 
   if (mark_type != "circular" & mark_type != "linear") {
-    return(stop("Please select between circular or linear mark types"))
+    stop("Please select between circular or linear mark types")
   }
 
   if (mark_type == "circular") {

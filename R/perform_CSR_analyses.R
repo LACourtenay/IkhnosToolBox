@@ -47,15 +47,15 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
   `%!in%` = Negate(`%in%`)
 
   if("pp3" %!in% class(spatial_object)) {
-    return(stop("Invalid spatial object"))
+    stop("Invalid spatial object")
   }
 
   if (n_permutations <= 0 | n_permutations %% 1 != 0) {
-    return(stop("The number of permutations must be a positive, non-zero integer"))
+    stop("The number of permutations must be a positive, non-zero integer")
   }
 
   if (n_permutations < 101) {
-    return(stop("The minimum number of permutations required for this function is 101"))
+    stop("The minimum number of permutations required for this function is 101")
   }
 
   cat("Generating simulations of Complete Spatial Randomness...\n")

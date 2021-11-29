@@ -48,38 +48,38 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
                              create_external_plot = TRUE) {
 
   if(missing(data)) {
-    return(stop("The user has not specified the data to be used for tSNE calculations"))
+    stop("The user has not specified the data to be used for tSNE calculations")
   } else if(!is.matrix(data)) {
-    return(stop("Input data must be in a numerical matrix format"))
+    stop("Input data must be in a numerical matrix format")
   }
 
   if (is.null(perplexity)) {
     perplexity = dim(data)[1] ** (1/2)
   } else {
     if (perplextiy < 0) {
-      return(stop("Perplexity must be a non-negative number"))
+      stop("Perplexity must be a non-negative number")
     }
   }
 
   if (n_iterations <= 0 | n_iterations %% 1 != 0) {
-    return(stop("The number of permutations must be a positive, non-zero integer"))
+    stop("The number of permutations must be a positive, non-zero integer")
   }
 
   if (!is.null(plot_colours)) {
     colour_bool <- check_colours(plot_colours)
     if (FALSE %in% colour_bool) {
-      return(stop("Invalid colour provided for plot_colours"))
+      stop("Invalid colour provided for plot_colours")
     }
   }
 
   if(!is.null(labels)) {
     if (nrow(data) != length(as.factor(labels))) {
-      return(stop(
+      stop(
         paste0(
           "Only ", length(as.factor(labels)), " labels have been provided for",
           "a set of ", nrow(data), " coordinates."
         )
-      ))
+      )
     }
   }
 
@@ -120,13 +120,13 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
     plot_colours <- c("black", "red", "blue", "orange", "darkgreen", "violetred")
 
     if (length(plot_colours) < length(levels(as.factor(labels)))) {
-      return(stop(
+      stop(
         paste0("This function by default provides 6 possible label colours,",
             " however the data introduced contains ",
             length(levels(as.factor(labels))), " groups.\n",
             "Please provide a set of ", length(levels(as.factor(labels))),
             " colours for the current plot.")
-      ))
+      )
     }
 
     ggplot_colours <- ggplot2::scale_color_manual(
@@ -136,7 +136,7 @@ tsne_calculation <- function(data, labels = NULL, n_iterations = 1000, perplexit
   } else {
 
     if (length(plot_colours) < length(levels(as.factor(labels)))) {
-      return(stop("Insufficient label_colours arguments provided."))
+      stop("Insufficient label_colours arguments provided.")
     }
 
     ggplot_colours <- ggplot2::scale_color_manual(

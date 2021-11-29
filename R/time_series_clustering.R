@@ -66,11 +66,11 @@ time_series_clustering <- function(series_dataframe,
       "Frequencies" %!in% colnames(series_dataframe) |
       "Sequence" %!in% colnames(series_dataframe) |
       "Sample" %!in% colnames(series_dataframe)) {
-    return(stop(
+    stop(
       paste0("\nInvalid data.frame input into time_series_clustering.\n",
              "Input to this function must be a 3 column data.frame containing",
              " a Sequence column, a Frequencies column, and a Sample column.")
-    ))
+    )
   }
 
   split_dataframe <- split(series_database, series_database$Sample)

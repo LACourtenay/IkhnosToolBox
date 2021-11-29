@@ -42,36 +42,36 @@ two_sample_histogram_distributions <- function(
   `%!in%` = Negate(`%in%`)
 
   if(missing(group_1) | missing(group_2)) {
-    return(stop(
+    stop(
       "This function is for the comparison of two samples, yet only one has been provided"
-    ))
+    )
   } else if (class(group_1)[1] != "pp3" | class(group_2)[1] != "pp3") {
-    return(stop("Invalid spatial object"))
+    stop("Invalid spatial object")
   }
 
   if(missing(sample_1_name)) {
-    return(stop("Missing sample 1 name"))
+    stop("Missing sample 1 name")
   }
 
   if(missing(sample_2_name)) {
-    return(stop("Missing sample 2 name"))
+    stop("Missing sample 2 name")
   }
 
   possible_dimensions <- c("x","y","z")
 
   if(missing(dimension)) {
-    return(stop("The dimension under study must be specified"))
+    stop("The dimension under study must be specified")
   } else if (dimension %!in% possible_dimensions) {
-    return(stop("Please choose 'x', 'y' or 'z' as a possible dimension"))
+    stop("Please choose 'x', 'y' or 'z' as a possible dimension")
   }
 
   possible_bones <- c("femur","humerus","metacarpus","radius",
                       "tibia","metatarsus")
 
   if(missing(bone_type)) {
-    return(stop("The user must specify the bone under study"))
+    stop("The user must specify the bone under study")
   } else if (bone_type %!in% possible_bones) {
-    return(stop("Invalid bone type"))
+    stop("Invalid bone type")
   }
 
   if (dimension == "x") {

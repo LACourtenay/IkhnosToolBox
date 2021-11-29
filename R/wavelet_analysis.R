@@ -47,25 +47,25 @@ wavelet_analysis <- function (first_ts, second_ts, sample_1_name, sample_2_name,
                               create_external_plot = TRUE) {
 
   if(missing(first_ts) | missing(second_ts)) {
-    return(stop(
+    stop(
       "This function is for the comparison of two spatial sime series, yet only one has been provided"
-    ))
+    )
   } else if (!is.matrix(first_ts) | !is.matrix(first_ts)) {
-    return(stop(
+    stop(
       "Input data must be in a numerical matrix format"
-    ))
+    )
   }
 
   if(missing(sample_1_name)) {
-    return(stop("Missing sample 1 name"))
+    stop("Missing sample 1 name")
   }
 
   if(missing(sample_2_name)) {
-    return(stop("Missing sample 2 name"))
+    stop("Missing sample 2 name")
   }
 
   if (n_iterations <= 0 | n_iterations %% 1 != 0) {
-    return(stop("The number of permutations must be a positive, non-zero integer"))
+    stop("The number of permutations must be a positive, non-zero integer")
   }
 
   wavelet_coh <- biwavelet::wtc(first_ts,
