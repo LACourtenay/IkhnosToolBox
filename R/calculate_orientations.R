@@ -62,34 +62,48 @@ calculate_orientations <- function(linear_data, bone,
 
   example_bone <- bone
 
-  start_mark <- data.frame(x = linear_data$x1,
-                           y = linear_data$y1,
-                           z = linear_data$z1,
-                           Sample = "mark",
-                           position = "start")
-  end_mark <- data.frame(x = linear_data$x2,
-                         y = linear_data$y2,
-                         z = linear_data$z2,
-                         Sample = "mark",
-                         position = "end")
-  bone <- data.frame(x = example_bone[,1],
-                     y = example_bone[,2],
-                     z = example_bone[,3],
-                     Sample = "bone",
-                     position = "none")
+  start_mark <- data.frame(
+    x = linear_data$x1,
+    y = linear_data$y1,
+    z = linear_data$z1#,
+    #Sample = "mark",
+    #position = "start"
+  )
+  end_mark <- data.frame(
+    x = linear_data$x2,
+    y = linear_data$y2,
+    z = linear_data$z2#,
+    #Sample = "mark",
+    #position = "end"
+  )
+  bone <- data.frame(
+    x = example_bone[,1],
+    y = example_bone[,2],
+    z = example_bone[,3]#,
+    #Sample = "bone",
+    #position = "none"
+  )
 
-  threed_model <- rbind(start_mark, end_mark, bone)
-  threed_model$Sample <- as.factor(threed_model$Sample)
-  threed_model$position <- as.factor(threed_model$position)
+  oriented_bone <- prcomp(bone, scale = FALSE)
+  oriented_start <- as.data.frame(predict(oriented_bone, newdata = start_mark[,1:3]))
+  oriented_end <- as.data.frame(predict(oriented_bone, newdata = end_mark[,1:3]))
 
-  pc_bone <- prcomp(threed_model[,1:3])
+  threed_model <- as.data.frame(oriented_bone$x)
+  threed_model <- data.frame(threed_model, Sample = "bone", Position = "none")
 
-  adjusted_threed <- as.data.frame(pc_bone$x)
-  adjusted_threed$Sample <- threed_model$Sample
-  adjusted_threed$Position <- threed_model$position
+  oriented_start <- data.frame(
+    oriented_start, Sample = "mark", Position = "start"
+  )
+  oriented_end <- data.frame(
+    oriented_end, Sample = "mark", Position = "end"
+  )
 
-  bone_outline <- cbind(adjusted_threed[threed_model$Sample == "bone",1],
-                        adjusted_threed[threed_model$Sample == "bone",2])
+  adjusted_threed <- rbind(threed_model, oriented_start, oriented_end)
+  adjusted_threed$Sample <- as.factor(adjusted_threed$Sample)
+  adjusted_threed$Position <- as.factor(adjusted_threed$Position)
+
+  bone_outline <- cbind(adjusted_threed[adjusted_threed$Sample == "bone",1],
+                        adjusted_threed[adjusted_threed$Sample == "bone",2])
   bone_outline <- bone_outline[!duplicated(bone_outline),]
 
   bone_conv <- alphahull::ashape(bone_outline,

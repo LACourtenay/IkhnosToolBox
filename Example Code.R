@@ -85,21 +85,22 @@ wavelet_analysis(
 
 # Calculate orientations ------------------
 
-data("right_radius") #el radio se daba la vuelta - solucionar (Lloyd tuvo una idea y la apunto)
+data("right_femur") #el radio se daba la vuelta - solucionar (Lloyd tuvo una idea y la apunto)
+data("femur_right_linear1")
 
-example_circ_1 <- load_marks(
+example_lin_1 <- load_marks(
   femur_right_linear1,
   mark_type = "linear",
   plot = FALSE
 )
-example_circ_2 <- load_marks(
+example_lin_2 <- load_marks(
   femur_right_linear2,
   mark_type = "linear",
   plot = FALSE
 )
 
-right_1 <- calculate_orientations(example_circ_1, right_femur)
-right_2 <- calculate_orientations(example_circ_2, right_femur)
+right_1 <- calculate_orientations(example_lin_1, right_femur)
+right_2 <- calculate_orientations(example_lin_2, right_femur)
 
 descriptive_circular_analysis(right_1)
 descriptive_circular_analysis(right_2)
