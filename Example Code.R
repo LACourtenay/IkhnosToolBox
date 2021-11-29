@@ -7,21 +7,23 @@ data(right_femur)
 load_bone(right_femur)
 
 data("femur_right_circular1")
+data("femur_right_linear1")
+data("femur_right_linear2")
 
 # if file path is unknown:
 
-example_c <- load_marks("femur_right_circular1", plot = TRUE)
+#example_c <- load_marks("femur_right_circular1", plot = TRUE)
 #example_l <- load_marks("linear", plot = TRUE, colour_value = "red")
 
 # if file path is known:
 
-example_1 <- load_marks(file_name = data("femur_right_circular1"), #COMO HACER ESTO??
+example_1 <- load_marks(femur_right_circular1, #COMO HACER ESTO??
   mark_type = "circular",
   plot = TRUE
 )
 
 example_2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\TALLA GRANDE_cautividad\\A\\femur R_A_large.txt",
+  femur_right_linear1,
   mark_type = "linear",
   plot = TRUE,
   colour_value = "red"
@@ -86,18 +88,18 @@ wavelet_analysis(
 data("right_radius") #el radio se daba la vuelta - solucionar (Lloyd tuvo una idea y la apunto)
 
 example_circ_1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\SALVAJE\\TALLA GRANDE_salvaje\\radius R_A_large.txt",
+  femur_right_linear1,
   mark_type = "linear",
   plot = FALSE
 )
 example_circ_2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\TALLA GRANDE_cautividad\\SA\\radius R_SA_large.txt",
+  femur_right_linear2,
   mark_type = "linear",
   plot = FALSE
 )
 
-right_1 <- calculate_orientations(example_circ_1, right_radius)
-right_2 <- calculate_orientations(example_circ_2, right_radius)
+right_1 <- calculate_orientations(example_circ_1, right_femur)
+right_2 <- calculate_orientations(example_circ_2, right_femur)
 
 descriptive_circular_analysis(right_1)
 descriptive_circular_analysis(right_2)
@@ -111,91 +113,101 @@ d1 <- compare_two_sample_orientations(right_1, right_2)
 
 # skeletal profile analysis ------------------
 
+data("humerus_right_circular1")
+data("humerus_right_circular2")
+data("humerus_right_circular3")
+data("femur_right_circular1")
+data("femur_right_circular2")
+data("femur_right_circular3")
+data("tibia_right_circular1")
+data("tibia_right_circular2")
+data("tibia_right_circular3")
+data("radius_right_circular1")
+data("radius_right_circular2")
+data("radius_right_circular3")
+data("metatarsus_right_circular1")
+data("metatarsus_right_circular2")
+data("metatarsus_right_circular3")
+
+data("metacarpus_right_circular1")
+
 # series 1
 
 h1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular1.txt",
-  "circular", plot = FALSE
+  humerus_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
 f1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular1.txt",
-  "circular", plot = FALSE
+  femur_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
 r1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular1.txt",
-  "circular", plot = FALSE
+  radius_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
 t1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular1.txt",
-  "circular", plot = FALSE
+  tibia_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
-
 mt1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular1.txt",
-  "circular", plot = FALSE
+  metatarsus_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
-
 mc1 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metacarpus_right_circular1.txt",
-  "circular", plot = FALSE
+  metacarpus_right_circular1,
+  mark_type = "circular", plot = FALSE
 )
-
-
 
 # series 2
 
 h2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular2.txt",
-  "circular", plot = FALSE
+  humerus_right_circular2,
+  mark_type = "circular", plot = FALSE
 )
 f2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular2.txt",
-  "circular", plot = FALSE
+  femur_right_circular2,
+  mark_type = "circular", plot = FALSE
 )
 r2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular2.txt",
-  "circular", plot = FALSE
+  radius_right_circular2,
+  mark_type = "circular", plot = FALSE
 )
 t2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular2.txt",
-  "circular", plot = FALSE
+  tibia_right_circular2,
+  mark_type = "circular", plot = FALSE
 )
-
 mt2 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular2.txt",
-  "circular", plot = FALSE
+  metatarsus_right_circular2,
+  mark_type = "circular", plot = FALSE
 )
 
 # series 3
 
 h3 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular3.txt",
-  "circular", plot = FALSE
+  humerus_right_circular3,
+  mark_type = "circular", plot = FALSE
 )
 f3 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular3.txt",
-  "circular", plot = FALSE
+  femur_right_circular3,
+  mark_type = "circular", plot = FALSE
 )
 r3 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular3.txt",
-  "circular", plot = FALSE
+  radius_right_circular3,
+  mark_type = "circular", plot = FALSE
 )
 t3 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular3.txt",
-  "circular", plot = FALSE
+  tibia_right_circular3,
+  mark_type = "circular", plot = FALSE
 )
-
 mt3 <- load_marks(
-  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular3.txt",
-  "circular", plot = FALSE
+  metatarsus_right_circular3,
+  mark_type = "circular", plot = FALSE
 )
 
 
-time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1
-                                    , mt =mt1, mc = mc1
-                                    )
+time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1, mt = mt1)
 time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, mt = mt2, colour = "red")
-time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
+time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, mt = mt3, colour = "blue")
 
 series_database <- rbind(time_series_1, time_series_2, time_series_3)
 series_database$Sample <- as.factor(
@@ -206,7 +218,7 @@ series_database$Sample <- as.factor(
   )
 )
 
-time_series_clustering(series_database)
+# time_series_clustering(series_database)
 
 #
 

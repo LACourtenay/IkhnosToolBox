@@ -38,7 +38,7 @@
 #' load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red") #ESTO DA ERROR POR NO CARGAR EL RDA
 #' save_3d_image("my_first_plot")
 
-load_marks <- function(file_name = NULL, mark_type = "circular",
+load_marks <- function(data, file_name = NULL, mark_type = "circular",
                        delim = ",", plot = FALSE,
                        colour_value = "black", mark_size = 6) {
 
@@ -78,8 +78,10 @@ load_marks <- function(file_name = NULL, mark_type = "circular",
 
   if (!is.null(file_name)) {
     new_points <- read.table(file_name, header = T, sep = delim)
-  } else {
+  } else if (is.null(file_name) & missing(data)) {
     new_points <- read.table(file.choose(), header = T, sep = delim)
+  } else {
+    new_points <- data
   }
 
   if (plot == TRUE) {

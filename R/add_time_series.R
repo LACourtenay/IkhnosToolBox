@@ -65,11 +65,9 @@ add_time_series <- function(
   active_window <- try(points(1,2), silent = TRUE)
 
   if(class(active_window) == "try-error") {
-    return(
-      stop(
-        paste0("\n\nThis function is used to add a time series plot to an already existing plot.\n",
-               "No plot has yet been called using the create_time_series function.\n")
-      )
+    stop(
+      paste0("\n\nThis function is used to add a time series plot to an already existing plot.\n",
+              "No plot has yet been called using the create_time_series function.\n")
     )
   }
 
