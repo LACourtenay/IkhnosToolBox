@@ -29,7 +29,8 @@
 #' @seealso \code{\link{add_time_series}}, \code{\link{load_marks}}.
 #'
 #'
-#' @examples                         #DA PROBLEMAS CON mt - HE VISTO UNOS FALLOS EN MISC FUNCTIONS: PONIA MC CUANDO DEBERÍA PONER MT, LO HE CAMBIADO Y SIGUE SIN FUNCIONAR - EL RESTO DE HUESOS FUNCIONA BIEN
+#' @examples
+#' #DA PROBLEMAS CON mt - HE VISTO UNOS FALLOS EN MISC FUNCTIONS: PONIA MC CUANDO DEBER?A PONER MT, LO HE CAMBIADO Y SIGUE SIN FUNCIONAR - EL RESTO DE HUESOS FUNCIONA BIEN
 #' data(humerus_right_circular1)
 #' data(femur_right_circular1)
 #' data(radius_right_circular1)

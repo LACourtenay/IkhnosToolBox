@@ -2,31 +2,36 @@
 % Please edit documentation in R/extract_spatial_data.R
 \name{extract_spatial_data}
 \alias{extract_spatial_data}
-\title{Prepare data for spatial analysis}
+\title{Prepare data for spatial analysis.}
 \usage{
 extract_spatial_data(
   input_data,
   mark_type = "circular",
   print_summary = TRUE,
-  plot_results = FALSE
+  plot_results = FALSE,
+  create_external_plot = TRUE
 )
 }
 \arguments{
-\item{input_data}{a data.frame object containing spatial coordinates}
+\item{input_data}{A data frame containing spatial coordinates.}
 
-\item{mark_type}{a string specifying whether marks are "circular" or "linear"}
+\item{mark_type}{A string specifying whether marks are "circular" or "linear".}
 
-\item{print_summary}{a boolean option to print a summary of data}
+\item{print_summary}{A boolean TRUE or FALSE option (default = TRUE) to print
+a summary of the data included in the spatial object.}
 
-\item{plot_results}{a boolean option to plot the spatial information}
+\item{plot_results}{A boolean TRUE or FALSE option (default = FALSE) to plot
+the spatial information.}
 }
 \value{
-A spatial object for statistical analyses
+A spatial object for statistical analyses.
 }
 \description{
-The present function is used to prepare data for further spatial analysis
+The present function is used to prepare data for further spatial
+analysis.
 }
 \examples{
-example_data <- load_marks(mark_type = "circular")
+data(femur_right_circular1) #COMPROBAR ESTO
+example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
 example_sp_object <- extract_spatial_data(example_data, "circular")
 }

@@ -6,27 +6,28 @@ library(IkhnosToolBox)
 data(right_femur)
 load_bone(right_femur)
 
+data("femur_right_circular1")
+
 # if file path is unknown:
 
-#example_c <- load_marks("circular", plot = TRUE)
+example_c <- load_marks("femur_right_circular1", plot = TRUE)
 #example_l <- load_marks("linear", plot = TRUE, colour_value = "red")
 
 # if file path is known:
 
-example_1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\B_femur R_A_medium.txt",
+example_1 <- load_marks(file_name = data("femur_right_circular1"), #COMO HACER ESTO??
   mark_type = "circular",
   plot = TRUE
 )
 
 example_2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\TALLA GRANDE_cautividad\\A\\femur R_A_large.txt",
   mark_type = "linear",
   plot = TRUE,
   colour_value = "red"
 )
 
-save_3d_image("trial")
+save_3d_image("femur_R_large_captive")
 
 #
 
@@ -53,6 +54,7 @@ group_labels <- as.factor(c(
   rep("circular", nrow(sample1_coords)),
   rep("linear", nrow(sample2_coords))
 ))
+
 
 tsne_calculation(sample1_sample2, group_labels)
 
@@ -81,21 +83,21 @@ wavelet_analysis(
 
 # Calculate orientations ------------------
 
-data("right_femur")
+data("right_radius") #el radio se daba la vuelta - solucionar (Lloyd tuvo una idea y la apunto)
 
 example_circ_1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\D_femur R_A_large.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\SALVAJE\\TALLA GRANDE_salvaje\\radius R_A_large.txt",
   mark_type = "linear",
   plot = FALSE
 )
 example_circ_2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\E_femur R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\DATOS LOBOS\\ARCHIVOS R_SCORES\\TALLA GRANDE_cautividad\\SA\\radius R_SA_large.txt",
   mark_type = "linear",
   plot = FALSE
 )
 
-right_1 <- calculate_orientations(example_circ_1, right_femur)
-right_2 <- calculate_orientations(example_circ_2, right_femur)
+right_1 <- calculate_orientations(example_circ_1, right_radius)
+right_2 <- calculate_orientations(example_circ_2, right_radius)
 
 descriptive_circular_analysis(right_1)
 descriptive_circular_analysis(right_2)
@@ -103,7 +105,7 @@ descriptive_circular_analysis(right_2)
 preferential_orientation_test(right_1)
 preferential_orientation_test(right_2)
 
-compare_two_sample_orientations(right_1, right_2)
+d1 <- compare_two_sample_orientations(right_1, right_2)
 
 #
 
@@ -112,62 +114,87 @@ compare_two_sample_orientations(right_1, right_2)
 # series 1
 
 h1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\H_humerus L&R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular1.txt",
   "circular", plot = FALSE
 )
 f1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\F_femur L&R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular1.txt",
   "circular", plot = FALSE
 )
 r1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\R_radius L&R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular1.txt",
   "circular", plot = FALSE
 )
 t1 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\T_tibia L&R_A&SA_medium.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular1.txt",
   "circular", plot = FALSE
 )
+
+mt1 <- load_marks(
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular1.txt",
+  "circular", plot = FALSE
+)
+
+mc1 <- load_marks(
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metacarpus_right_circular1.txt",
+  "circular", plot = FALSE
+)
+
+
 
 # series 2
 
 h2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\H2_humerus L&R_A&SA_small.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular2.txt",
   "circular", plot = FALSE
 )
 f2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\F2_femur L&R_A&SA_small.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular2.txt",
   "circular", plot = FALSE
 )
 r2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\R2_radius L&R_A&SA_small.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular2.txt",
   "circular", plot = FALSE
 )
 t2 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\T2_tibia L&R_A&SA_small.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular2.txt",
+  "circular", plot = FALSE
+)
+
+mt2 <- load_marks(
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular2.txt",
   "circular", plot = FALSE
 )
 
 # series 3
 
 h3 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\humerus L&R_A_large.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\humerus_right_circular3.txt",
   "circular", plot = FALSE
 )
 f3 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\femur L&R_A_large.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\femur_right_circular3.txt",
   "circular", plot = FALSE
 )
 r3 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\radius R_A_large.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\radius_right_circular3.txt",
   "circular", plot = FALSE
 )
 t3 <- load_marks(
-  "C:\\Users\\Lloyd\\Desktop\\TIDOP\\IKHNOS\\prueba ikhnos -R\\DATOS PRUEBA FEMUR\\series 3\\tibia L&R_A_large.txt",
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\tibia_right_circular3.txt",
   "circular", plot = FALSE
 )
 
-time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
-time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, colour = "red")
+mt3 <- load_marks(
+  "C:\\Users\\Tidop\\Documents\\IKHNOS AVILA\\datos para IkhnosToolBox\\metatarsus_right_circular3.txt",
+  "circular", plot = FALSE
+)
+
+
+time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1
+                                    , mt =mt1, mc = mc1
+                                    )
+time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, mt = mt2, colour = "red")
 time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
 
 series_database <- rbind(time_series_1, time_series_2, time_series_3)

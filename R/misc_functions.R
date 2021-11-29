@@ -8,7 +8,7 @@ check_colours <- function(col_list) {
 
 add_alpha <- function(col, alpha=1){ # Function for setting the alpha of colours
   if(missing(col))
-    return(warning("Please provide a vector of colours."))
+    return(stop("Please provide a vector of colours."))
   apply(sapply(col, col2rgb)/255, 2,
         function(x)
           rgb(x[1], x[2], x[3], alpha=alpha))
@@ -47,7 +47,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
                        plot = FALSE)$counts
 
     } else {
-      return(warning(
+      return(stop(
         "Invalid input type for the creation of time_series_data in h"
       ))
     }
@@ -80,7 +80,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
                        plot = FALSE)$counts
 
     } else {
-      return(warning(
+      return(stop(
         "Invalid input type for the creation of time_series_data in f"
       ))
     }
@@ -113,7 +113,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
                        plot = FALSE)$counts
 
     } else {
-      return(warning(
+      return(stop(
         "Invalid input type for the creation of time_series_data in r"
       ))
     }
@@ -146,7 +146,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
                        plot = FALSE)$counts
 
     } else {
-      return(warning(
+      return(stop(
         "Invalid input type for the creation of time_series_data in t"
       ))
     }
@@ -156,6 +156,39 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
     series <- c(series, t_series)
     line_nums <- c(line_nums, freq_t)
     labels <- c(labels, labels_t)
+  }
+
+  if (!is.null(mt)) {
+
+    if ("pp3" %in% class(mt)) {
+
+      mt_series <- hist(as.data.frame(mt$data[,1]),
+                        breaks = mt_breaks,
+                        plot = FALSE)$counts
+
+    } else if (is.data.frame(mt)) {
+
+      mt_series <- hist(mt$x1,
+                        breaks = mt_breaks,
+                        plot = FALSE)$counts
+
+    } else if (is.matrix(mt)) {
+
+      mt_series <- hist(mt[,1],
+                        breaks = mt_breaks,
+                        plot = FALSE)$counts
+
+    } else {
+      return(stop(
+        "Invalid input type for the creation of time_series_data in mt"
+      ))
+    }
+
+    freq_mt <- seq(1, length(mt_series))
+    labels_mt <- rep("MT", length(mt_series))
+    series <- c(series, mt_series)
+    line_nums <- c(line_nums, freq_mt)
+    labels <- c(labels, labels_mt)
   }
 
   if (!is.null(mc)) {
@@ -179,7 +212,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
                         plot = FALSE)$counts
 
     } else {
-      return(warning(
+      return(stop(
         "Invalid input type for the creation of time_series_data in mc"
       ))
     }
@@ -191,38 +224,7 @@ extract_ts_data <- function(h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, m
     labels <- c(labels, labels_mc)
   }
 
-  if (!is.null(mt)) {
 
-    if ("pp3" %in% class(mt)) {
-
-      mt_series <- hist(as.data.frame(mt$data[,1]),
-                        breaks = mt_breaks,
-                        plot = FALSE)$counts
-
-    } else if (is.data.frame(mc)) {
-
-      mt_series <- hist(mt$x1,
-                        breaks = mt_breaks,
-                        plot = FALSE)$counts
-
-    } else if (is.matrix(mt)) {
-
-      mt_series <- hist(mt[,1],
-                        breaks = mt_breaks,
-                        plot = FALSE)$counts
-
-    } else {
-      return(warning(
-        "Invalid input type for the creation of time_series_data in mt"
-      ))
-    }
-
-    freq_mt <- seq(1, length(mt_series))
-    labels_mt <- rep("MC", length(mt_series))
-    series <- c(series, mt_series)
-    line_nums <- c(line_nums, freq_mt)
-    labels <- c(labels, labels_mt)
-  }
 
   total_line <- seq(1, length(series))
   percentages = (series / sum(series))

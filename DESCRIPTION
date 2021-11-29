@@ -14,9 +14,9 @@ License: MIT License. Copyright (c) 2021 Lloyd Austin David Courtenay
 Encoding: UTF-8
 LazyData: true
 Imports:
-    rgl (>= 0.105),
+    rgl (>= 0.107),
     plot3Drgl (>= 1.0),
-    spatstat (>= 2.0),
+    spatstat (>= 2.2),
     biwavelet (>= 0.20),
     tidyverse (>= 1.3),
     RMySQL (>= 0.10),
@@ -25,8 +25,8 @@ Imports:
     circular (>= 0.4),
     abind (>= 1.4),
     factoextra (>= 1.0),
-    gridExtra (>= 2.0),
-    alphahull(>= 2.0)
+    gridExtra (>= 2.3),
+    alphahull(>= 2.2)
 Suggests:
     FactoMineR (>= 2.4)
 RoxygenNote: 7.1.2

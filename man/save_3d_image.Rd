@@ -2,24 +2,27 @@
 % Please edit documentation in R/save_3d_image.R
 \name{save_3d_image}
 \alias{save_3d_image}
-\title{Saves 3D visualization.}
+\title{Save 3D visualisation.}
 \usage{
 save_3d_image(file_name)
 }
 \arguments{
-\item{file_name}{a string specifying the file name where the .png image will be saved.}
+\item{file_name}{A string specifying the file name where the *.png
+image will be saved.}
 }
 \value{
-Saves the visualized 3D window as a .png file.
+Saves the visualised 3D window as a *.png file.
 }
 \description{
-Function to save visualization of data.
+Function to save visualisation of data.
 }
 \examples{
-data(left_femur)
-load_bone(left_femur)
-load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
-load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
+data(right_femur)
+data(femur_right_circular1) #COMPROBAR ESTO
+data(femur_right_linear1) #COMPROBAR ESTO
+load_bone(right_femur)
+load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black") #ESTO DA ERROR POR NO CARGAR EL RDA
+load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red") #ESTO DA ERROR POR NO CARGAR EL RDA
 save_3d_image("my_first_plot")
 }
 \seealso{

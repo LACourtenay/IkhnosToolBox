@@ -2,21 +2,22 @@
 % Please edit documentation in R/load_bone.R
 \name{load_bone}
 \alias{load_bone}
-\title{Load bone for visualization.}
+\title{Load bone for visualisation.}
 \usage{
 load_bone(bone_data)
 }
 \arguments{
-\item{bone}{An IkhnosToolBox data object (e.g. data(left_femur)) containing the 3d model of the bone being studied.}
+\item{bone}{An IkhnosToolBox data object (e.g. data(left_femur)) containing
+the 3d model of the bone being studied.}
 }
 \value{
-A 3D popup window
+A 3D popup window with the selected bone mesh points.
 }
 \description{
-The present function creates a 3D popup window visualizing the bone under
-study. This can then be combined with functions such as \code{load_marks}
-to visualize marks on the 3D model, and \code{save_3d_image} to
-save the window to a *.png file.
+The present function creates a 3D popup window visualising
+the bone under study. This can then be combined with functions such as
+\code{load_marks} to visualise marks on the 3D model, and
+\code{save_3d_image}nto save the window to a *.png file.
 }
 \examples{
 data(left_femur)
