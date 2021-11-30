@@ -34,7 +34,7 @@
 #' Esther, M.; Kriegel, H.P.; Sander, J.; Xu, X. (1996) A density based algorithm
 #' for discovering clusters in large spatial databases with noise. In: Proceedings of the
 #' 2nd International Conference on Knowledge Discovery and Data Mining, Munchen, Germany.
-#' \code{\link{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}}
+#' \url{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}
 #'
 #' @section Notes:
 #' Due to the stochastic nature of the tSNE algorithm, the authors recommend
@@ -285,7 +285,7 @@ tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, per
 
   if (create_external_plot == TRUE) {
     if (!is.null(labels)) {
-      X11(); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+      X11(width = 15, height = 8); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
     } else {
       X11(); gridExtra::grid.arrange(tsne_cluster_plot)
     }

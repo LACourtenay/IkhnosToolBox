@@ -135,7 +135,10 @@ calculate_orientations <- function(linear_data, bone,
     par(mfrow = c(1,2))
   }
 
-  plot(bone_conv$edges[,4], bone_conv$edges[,3], pch = 19, asp = 1, cex = 0.1)
+  plot(
+    bone_conv$edges[,4], bone_conv$edges[,3], pch = 19, asp = 1, cex = 0.1, xlab = "", ylab = "",
+    xaxt="none", yaxt="none", bty = "none"
+  )
   segments(adjusted_threed[adjusted_threed$Position == "start", 2],
            adjusted_threed[adjusted_threed$Position == "start", 1],
            adjusted_threed[adjusted_threed$Position == "end", 2],

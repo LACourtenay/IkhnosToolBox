@@ -59,8 +59,6 @@ group_labels <- as.factor(c(
 
 tsne_calculation(sample1_sample2, group_labels, bone = right_femur)
 
-tsne_scores <- tsne_calculation(sample1_sample2)$plot_data
-
 tsne_calculation(sample1_sample2, bone = right_femur)
 
 #
@@ -208,14 +206,14 @@ time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1, mt = mt1)
 time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, mt = mt2, colour = "red")
 time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, mt = mt3, colour = "blue")
 
-series_database <- rbind(time_series_1, time_series_2, time_series_3)
-series_database$Sample <- as.factor(
-  c(
-    rep("Series_1", nrow(time_series_1)),
-    rep("Series_2", nrow(time_series_2)),
-    rep("Series_3", nrow(time_series_3))
-  )
-)
+#series_database <- rbind(time_series_1, time_series_2, time_series_3)
+#series_database$Sample <- as.factor(
+#  c(
+#    rep("Series_1", nrow(time_series_1)),
+#    rep("Series_2", nrow(time_series_2)),
+#    rep("Series_3", nrow(time_series_3))
+#  )
+#)
 
 # time_series_clustering(series_database)
 

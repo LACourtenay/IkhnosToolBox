@@ -182,7 +182,7 @@ two_sample_histogram_distributions <- function(
                                   col = c("black", "red"),
                                   lwd = 2,
                                   xlab = paste(
-                                    dimension, " axis", sep = ""
+                                    toupper(dimension), " Axis", sep = ""
                                   ))
   } else {
     sm::sm.density.compare(comparison[,1],
@@ -191,7 +191,7 @@ two_sample_histogram_distributions <- function(
                            col = c("black", "red"),
                            lwd = 2,
                            xlab = paste(
-                             dimension, " axis", sep = ""
+                             toupper(dimension), " Axis", sep = ""
                            ))
   }
 

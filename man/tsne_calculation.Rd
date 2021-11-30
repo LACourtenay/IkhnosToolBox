@@ -65,7 +65,7 @@ Information Processing Systems. 857-864.
 Esther, M.; Kriegel, H.P.; Sander, J.; Xu, X. (1996) A density based algorithm
 for discovering clusters in large spatial databases with noise. In: Proceedings of the
 2nd International Conference on Knowledge Discovery and Data Mining, Munchen, Germany.
-\code{\link{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}}
+\url{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}
 }
 
 \section{Notes}{
