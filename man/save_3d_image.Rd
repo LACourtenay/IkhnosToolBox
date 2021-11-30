@@ -17,14 +17,15 @@ Saves the visualised 3D window as a *.png file.
 Function to save visualisation of data.
 }
 \examples{
-data(right_femur)
-data(femur_right_circular1) #COMPROBAR ESTO
-data(femur_right_linear1) #COMPROBAR ESTO
+data("right_femur")
+data("femur_right_circular1")
+data("femur_right_linear1")
 load_bone(right_femur)
-load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black") #ESTO DA ERROR POR NO CARGAR EL RDA
-load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red") #ESTO DA ERROR POR NO CARGAR EL RDA
+load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black")
+load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red")
 save_3d_image("my_first_plot")
 }
 \seealso{
-\code{\link{load_bone}}, \code{\link{save_3d_image}}.
+\code{\link{load_bone}}, \code{\link{save_3d_image}},
+\code{\link{rgl.snapshot}}.
 }

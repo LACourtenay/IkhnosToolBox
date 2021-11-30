@@ -51,17 +51,19 @@ mark frequencies on several bone elements and provide the basis for the
 addition of further samples.
 }
 \examples{
-#DA PROBLEMAS CON mt - HE VISTO UNOS FALLOS EN MISC FUNCTIONS: PONIA MC CUANDO DEBER?A PONER MT, LO HE CAMBIADO Y SIGUE SIN FUNCIONAR - EL RESTO DE HUESOS FUNCIONA BIEN
-data(humerus_right_circular1)
-data(femur_right_circular1)
-data(radius_right_circular1)
-data(tibia_right_circular1)  #COMPROBAR ESTO
-h1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
-f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
-r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
-t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+data("humerus_right_circular1")
+data("femur_right_circular1")
+data("radius_right_circular1")
+data("tibia_right_circular1")
+h1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
+f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
+r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
+t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
 }
 \seealso{
 \code{\link{add_time_series}}, \code{\link{load_marks}}.
+}
+\author{
+Lloyd A. Courtenay
 }

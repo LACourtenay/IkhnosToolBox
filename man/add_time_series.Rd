@@ -46,30 +46,30 @@ The present function is used to add a time series plot to an
 already existing time series plot.
 }
 \examples{
-data(humerus_right_circular1)
-data(femur_right_circular1)
-data(radius_right_circular1)
-data(tibia_right_circular1)  #COMPROBAR ESTO
-h1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE) #ESTO DA ERROR POR NO CARGAR EL RDA
+data("humerus_right_circular1")
+data("femur_right_circular1")
+data("radius_right_circular1")
+data("tibia_right_circular1")
+h1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
 
-data(humerus_right_circular2)
-data(femur_right_circular2)
-data(radius_right_circular2)
-data(tibia_right_circular2)
+data("humerus_right_circular2")
+data("femur_right_circular2")
+data("radius_right_circular2")
+data("tibia_right_circular2")
 h1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
 f1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
 r1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
 t1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
 time_series_2 <- create_time_series(h = h2, f = f2, r = r2, t = t2, colour = "red")
 
-data(humerus_right_circular3)
-data(femur_right_circular3)
-data(radius_right_circular3)
-data(tibia_right_circular3)
+data("humerus_right_circular3")
+data("femur_right_circular3")
+data("radius_right_circular3")
+data("tibia_right_circular3")
 h1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
 f1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
 r1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
@@ -78,4 +78,7 @@ time_series_3 <- create_time_series(h = h3, f = f3, r = r3, t = t3, colour = "bl
 }
 \seealso{
 \code{\link{create_time_series}}, \code{\link{load_marks}}.
+}
+\author{
+Lloyd A. Courtenay
 }

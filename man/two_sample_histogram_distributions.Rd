@@ -42,15 +42,24 @@ samples.
 The present function is used to compare the frequency of marks
 along a specific bone axis between two samples.
 }
+\section{Bibliography}{
+
+Bowman, A.W. and Azzalini, A. (1997). Applied Smoothing Techniques for Data
+Analysis: the Kernel Approach with S-Plus Illustrations. Oxford University Press, Oxford.
+}
+
 \examples{
-data(femur_right_circular1) #COMPROBAR ESTO
-data(femur_right_linear1) #COMPROBAR ESTO
-example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
-example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+data("femur_right_circular1")
+data("femur_right_linear1")
+example_data1 <- load_marks(femur_right_circular1, mark_type = "circular")
+example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 example_sp_object2 <- extract_spatial_data(example_data2, "circular")
 example_time_series <- two_sample_histogram_distributions(example_sp_object1, example_sp_object2,"circular", "linear","x", "femur")
 }
 \seealso{
-\code{\link{wavelet_analysis}}
+\code{\link{wavelet_analysis}}, \code{\link{sm.density.compare}}.
+}
+\author{
+Lloyd A.courtenay
 }

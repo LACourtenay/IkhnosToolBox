@@ -31,7 +31,13 @@ The present function is used to prepare data for further spatial
 analysis.
 }
 \examples{
-data(femur_right_circular1) #COMPROBAR ESTO
-example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+data("femur_right_circular1")
+example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 example_sp_object <- extract_spatial_data(example_data, "circular")
+}
+\seealso{
+\code{\link{box3}}, \code{\link{pp3}}.
+}
+\author{
+Lloyd A.courtenay
 }

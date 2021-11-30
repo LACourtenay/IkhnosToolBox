@@ -5,7 +5,7 @@
 #' the marks in the sample.
 #'
 #' @param spatial_object A pp3 object containing the 3-dimensional point pattern
-#' @param name A string to define the title of the plot.
+#' @param name_1 A string to define the title of the plot.
 #' @param create_external_plot A boolean TRUE or FALSE option (default = TRUE)
 #' to create a popup window with the plot of the distances between the marks.
 #'
@@ -13,11 +13,15 @@
 #' window with the plot for the calculated nearest neighbour distances between
 #' marks within the sample.
 #'
-#' @seealso \code{\link{sp_distance_matrices}}
+#' @seealso \code{\link{sp_distance_matrices}}, \code{\link{nndist}}
+#'
+#' @section Bibliography:
+#' A. Baddeley, E. Rubak and R.Turner. Spatial Point Patterns: Methodology and
+#' Applications with R. Chapman and Hall/CRC Press, 2015.
 #'
 #' @examples
-#' data(femur_right_circular1) #COMPROBAR ESTO
-#' example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' data("femur_right_circular1")
+#' example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_sp_object <- extract_spatial_data(example_data, "circular")
 #' example_distance_matrix <- sp_distance_matrix(example_sp_object, name = "marks")
 

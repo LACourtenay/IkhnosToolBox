@@ -11,7 +11,7 @@
 #' to visualise marks on the 3D model, and \code{save_3d_image} to
 #' save the window to a *.png file.
 #'
-#' @param file_name A string containing the path of the Ikhnos product file.        #COMO HACER PARA QUE LEA LOS RDA METIDOS EN DATA?
+#' @param file_name A string containing the path of the Ikhnos product file.
 #' If no file name is specified, then a popup window will appear allowing the
 #' user to locate the file in their system
 #' @param mark_type A lower case string specifying whether the marks under study
@@ -27,15 +27,16 @@
 #' @return A \code{data.frame} object containing the data extracted from Ikhnos.
 #' If plot = TRUE, then a 3D visualisation of marks is also created.
 #'
-#' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}}.
+#' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}},
+#' \code{\link{points3d}}
 #'
 #' @examples
-#' data(right_femur)
-#' data(femur_right_circular1) #COMPROBAR ESTO
-#' data(femur_right_linear1) #COMPROBAR ESTO
+#' data("right_femur")
+#' data("femur_right_circular1")
+#' data("femur_right_linear1")
 #' load_bone(right_femur)
-#' load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black") #ESTO DA ERROR POR NO CARGAR EL RDA
-#' load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black")
+#' load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red")
 #' save_3d_image("my_first_plot")
 
 load_marks <- function(data, file_name = NULL, mark_type = "circular",

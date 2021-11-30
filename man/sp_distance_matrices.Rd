@@ -40,15 +40,22 @@ between the two samples
 The present function is used to calculate the nearest neighbour
 distance within and between two samples.
 }
+\section{Bibliography}{
+
+A. Baddeley, E. Rubak and R.Turner. Spatial Point Patterns: Methodology and
+Applications with R. Chapman and Hall/CRC Press, 2015.
+}
+
 \examples{
-data(femur_right_circular1) #COMPROBAR ESTO
-data(femur_right_linear1) #COMPROBAR ESTO
-example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
-example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+data("femur_right_circular1")
+data("femur_right_linear1")
+example_data1 <- load_marks(femur_right_circular1, mark_type = "circular")
+example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 example_sp_object2 <- extract_spatial_data(example_data2, "linear")
 example_distance_matrices <- sp_distance_matrices(example_sp_object1, example_sp_object2, name_1 = "circular", name_2 = "linear")
 }
 \seealso{
-\code{\link{sp_distance_matrix}}.
+\code{\link{sp_distance_matrix}}, \code{\link{crossdist}},
+\code{\link{nndist}}
 }

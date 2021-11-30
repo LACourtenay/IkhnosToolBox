@@ -26,15 +26,35 @@
 #' window with a biwavelet plot to visualise the dependence between
 #' \code{first_ts} and \code{second_ts}.
 #'
-#' @seealso \code{\link{biwavelet}}, \code{\link{wtc}}, \code{\link{plot.biwavelet}},
+#' @seealso \code{\link{wtc}}, \code{\link{plot.biwavelet}},
 #' \code{\link{two_sample_histogram_distributions}}.
+#'
+#' @section Bibliography:
+#' Cazelles, B., M. Chavez, D. Berteaux, F. Menard, J. O. Vik, S. Jenouvrier, and
+#' N. C. Stenseth. 2008. Wavelet analysis of ecological time series. Oecologia 156:287-304.
+#'
+#' Grinsted, A., J. C. Moore, and S. Jevrejeva. 2004. Application of the cross
+#' wavelet transform and wavelet coherence to geophysical time series. Nonlinear
+#' Processes in Geophysics 11:561-566.
+#'
+#' Liu, Y., X. San Liang, and R. H. Weisberg. 2007. Rectification of the Bias in
+#' the Wavelet Power Spectrum. Journal of Atmospheric and Oceanic Technology 24:2093-2102.
+#'
+#' Torrence, C., and G. P. Compo. 1998. A Practical Guide to Wavelet Analysis.
+#' Bulletin of the American Meteorological Society 79:61-78.
+#'
+#' Torrence, C., and P. J. Webster. 1998. The annual cycle of persistence in the
+#' El Nino/Southern Oscillation. Quarterly Journal of the Royal Meteorological Society 124:1985-2004.
+#'
+#' Veleda, D., R. Montagne, and M. Araujo. 2012. Cross-Wavelet Bias Corrected by
+#' Normalizing Scales. Journal of Atmospheric and Oceanic Technology 29:1401-1408.
 #'
 #'
 #' @examples
-#' data(femur_right_circular1) #COMPROBAR ESTO
-#' data(femur_right_linear1) #COMPROBAR ESTO
-#' example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
-#' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' data("femur_right_circular1")
+#' data("femur_right_linear1")
+#' example_data1 <- load_marks(femur_right_circular1, mark_type = "circular")
+#' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 #' example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 #' example_sp_object2 <- extract_spatial_data(example_data2, "circular")
 #' example_time_series <- two_sample_histogram_distributions(example_sp_object1, example_sp_object2,"circular", "linear","x", "femur")

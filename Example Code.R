@@ -17,7 +17,7 @@ data("femur_right_linear2")
 
 # if file path is known:
 
-example_1 <- load_marks(femur_right_circular1, #COMO HACER ESTO??
+example_1 <- load_marks(femur_right_circular1,
   mark_type = "circular",
   plot = TRUE
 )
@@ -61,7 +61,7 @@ tsne_calculation(sample1_sample2, group_labels, bone = right_femur)
 
 tsne_scores <- tsne_calculation(sample1_sample2)$plot_data
 
-tsne_calculation(sample1_sample2, bone = right_femur) # see what Julia thinks...
+tsne_calculation(sample1_sample2, bone = right_femur)
 
 #
 
@@ -83,7 +83,7 @@ wavelet_analysis(
 
 # Calculate orientations ------------------
 
-data("right_femur") #el radio se daba la vuelta - solucionar (Lloyd tuvo una idea y la apunto)
+data("right_femur")
 data("femur_right_linear1")
 
 example_lin_1 <- load_marks(

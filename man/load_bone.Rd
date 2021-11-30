@@ -20,12 +20,13 @@ the bone under study. This can then be combined with functions such as
 \code{save_3d_image}nto save the window to a *.png file.
 }
 \examples{
-data(left_femur)
-load_bone(left_femur)
+data("left_femur")
+load_bone("left_femur")
 load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
 load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 save_3d_image("my_first_plot")
 }
 \seealso{
-\code{\link{load_marks}}, \code{\link{save_3d_image}}.
+\code{\link{load_marks}}, \code{\link{save_3d_image}},
+\code{\link{plot3d}}, \code{\link{aspect3d}}
 }

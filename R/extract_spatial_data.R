@@ -13,9 +13,13 @@
 #'
 #' @return A spatial object for statistical analyses.
 #'
+#' @seealso \code{\link{box3}}, \code{\link{pp3}}.
+#'
+#' @author Lloyd A.courtenay
+#'
 #' @examples
-#' data(femur_right_circular1) #COMPROBAR ESTO
-#' example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' data("femur_right_circular1")
+#' example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_sp_object <- extract_spatial_data(example_data, "circular")
 
 extract_spatial_data <- function(input_data,

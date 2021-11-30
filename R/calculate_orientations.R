@@ -4,7 +4,7 @@
 #' @description Function to conduct orientation analyses of scores and/or cut
 #' marks.
 #'
-#' @param linear_data A string containing the path of the Ikhnos product file     #COMO HACER PARA QUE LEA LOS RDA METIDOS EN DATA?
+#' @param linear_data A string containing the path of the Ikhnos product file
 #' containing linear data (e.g., scores or cut marks). If no file name is
 #' specified, then a popup window will appear allowing the user to locate the
 #' file in their system.
@@ -20,15 +20,24 @@
 #' two popup windows are created for the rose diagram and the visualisation
 #' of the linear marks on the specified bone.
 #'
-#' @seealso \code{\link{load_marks}}.
+#' @seealso \code{\link{load_marks}}, \code{\link{ashape}}, \code{\link{circular}},
+#' \code{\link{arrows.circular}}
 #'
+#' @author Lloyd A. Courtenay
+#'
+#' @section Bibliography:
+#' Edelsbrunner, H., Kirkpatrick, D.G. and Seidel, R. (1983). On the shape of a
+#' set of points in the plane. IEEE Transactions on Information Theory, 29(4), pp.551-559.
+#'
+#' Jammalamadaka, S. Rao and SenGupta, A. (2001). Topics in Circular Statistics,
+#' World Scientific Press, Singapore.
 #'
 #' @examples
 #' data("right_femur")
-#' data("femur_right_linear1") #COMPROBAR ESTO
-#' data("femur_right_linear2") #COMPROBAR ESTO
-#' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
-#' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+#' data("femur_right_linear1")
+#' data("femur_right_linear2")
+#' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear")
+#' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear")
 #' example_calculate_orientations_1 <- calculate_orientations(example_circ_1, right_femur)
 #' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
 

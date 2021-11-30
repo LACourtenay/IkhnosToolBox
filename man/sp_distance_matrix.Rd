@@ -9,10 +9,10 @@ sp_distance_matrix(spatial_object, name = "marks", create_external_plot = TRUE)
 \arguments{
 \item{spatial_object}{A pp3 object containing the 3-dimensional point pattern}
 
-\item{name}{A string to define the title of the plot.}
-
 \item{create_external_plot}{A boolean TRUE or FALSE option (default = TRUE)
 to create a popup window with the plot of the distances between the marks.}
+
+\item{name_1}{A string to define the title of the plot.}
 }
 \value{
 If create_external_plot = TRUE, then the function returns an popup
@@ -23,12 +23,18 @@ marks within the sample.
 The present function is used to calculate the distances between
 the marks in the sample.
 }
+\section{Bibliography}{
+
+A. Baddeley, E. Rubak and R.Turner. Spatial Point Patterns: Methodology and
+Applications with R. Chapman and Hall/CRC Press, 2015.
+}
+
 \examples{
-data(femur_right_circular1) #COMPROBAR ESTO
-example_data <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
+data("femur_right_circular1")
+example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 example_sp_object <- extract_spatial_data(example_data, "circular")
 example_distance_matrix <- sp_distance_matrix(example_sp_object, name = "marks")
 }
 \seealso{
-\code{\link{sp_distance_matrices}}
+\code{\link{sp_distance_matrices}}, \code{\link{nndist}}
 }

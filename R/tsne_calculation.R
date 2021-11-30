@@ -29,7 +29,12 @@
 #'
 #' @section Bibliography:
 #' Hinton, G.E.; Roweis, S.T. (2003) Stochastic Neighbor Embedding, Advances in Neural
-#' Information Processing Systems. 857-864
+#' Information Processing Systems. 857-864.
+#'
+#' Esther, M.; Kriegel, H.P.; Sander, J.; Xu, X. (1996) A density based algorithm
+#' for discovering clusters in large spatial databases with noise. In: Proceedings of the
+#' 2nd International Conference on Knowledge Discovery and Data Mining, Munchen, Germany.
+#' \code{\link{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}}
 #'
 #' @return A \code{data.frame} object containing the x, y coordinates and the
 #' associated group represented in the graph that appears in
@@ -40,9 +45,9 @@
 #' @author Lloyd A. Courtenay
 #'
 #' @examples
-#' data(femur_right_circular1)
-#' data(femur_right_linear1)
-#' data(right_femur)
+#' data("femur_right_circular1")
+#' data("femur_right_linear1")
+#' data("right_femur")
 #' example_data1 <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 #' example_sp_object1 <- extract_spatial_data(example_data1, "circular")
