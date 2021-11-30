@@ -16,9 +16,12 @@ LazyData: true
 Imports:
     rgl (>= 0.107),
     plot3Drgl (>= 1.0),
-    spatstat (>= 2.2),
+    spatstat (>= 2.0),
+    spatstat.core (>= 2.0),
+    spatstat.geom(>= 2.0),
     biwavelet (>= 0.20),
     tidyverse (>= 1.3),
+    ggplot2 (>= 3.0),
     RMySQL (>= 0.10),
     Rtsne (>= 0.15),
     Rcpp (>= 1.0),
