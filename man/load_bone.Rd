@@ -20,10 +20,12 @@ the bone under study. This can then be combined with functions such as
 \code{save_3d_image}nto save the window to a *.png file.
 }
 \examples{
-data("left_femur")
-load_bone("left_femur")
-load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
-load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
+data("right_femur")
+data("femur_right_circular1")
+data("femur_right_linear1")
+load_bone(right_femur)
+load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black")
+load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red")
 save_3d_image("my_first_plot")
 }
 \seealso{

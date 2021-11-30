@@ -56,7 +56,8 @@ example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 example_sp_object2 <- extract_spatial_data(example_data2, "circular")
 example_time_series <- two_sample_histogram_distributions(
-  example_sp_object1, example_sp_object2,"circular", "linear","x", "femur"
+  example_sp_object1, example_sp_object2,"circular", "linear","x", "femur",
+  create_external_plot = FALSE
 )
 }
 \seealso{

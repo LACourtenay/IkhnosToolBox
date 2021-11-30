@@ -76,7 +76,10 @@ the Royal Statistical Society, Series B, 39, 172 – 212.
 data("femur_right_circular1")
 example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 example_sp_object <- extract_spatial_data(example_data, "circular")
-example_CSR_analyses <- perform_CSR_analyses(example_sp_object, n_permutations = 101)
+example_CSR_analyses <- perform_CSR_analyses(
+  example_sp_object, n_permutations = 101,
+  create_external_plot = FALSE
+)
 }
 \seealso{
 \code{\link{spatstat.core}}, \code{\link{K3est}}, \code{\link{F3est}},

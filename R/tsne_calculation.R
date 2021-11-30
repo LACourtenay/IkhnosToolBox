@@ -64,7 +64,10 @@
 #'   c(rep("circular", nrow(sample1_coords)),
 #'   rep("linear", nrow(sample2_coords)))
 #' )
-#' tsne_calculation(sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"))
+#' tsne_calculation(
+#'   sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"),
+#'   create_external_plot = FALSE
+#' )
 #' @export
 
 tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, perplexity = NULL,
