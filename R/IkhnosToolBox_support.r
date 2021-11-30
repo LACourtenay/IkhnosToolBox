@@ -1,4 +1,4 @@
-#' @name IkhnosToolBox-package
+#' @name IkhnosToolBox
 #' @docType package
 #' @aliases IkhnosToolBox
 #' @title R Tool Box for the Ikhnos Taphonomic Software

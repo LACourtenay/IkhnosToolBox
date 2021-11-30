@@ -68,6 +68,13 @@ for discovering clusters in large spatial databases with noise. In: Proceedings 
 \code{\link{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}}
 }
 
+\section{Notes}{
+
+Due to the stochastic nature of the tSNE algorithm, the authors recommend
+executing this function a number of times to obtain the most reliable overview
+of the results.
+}
+
 \examples{
 data("femur_right_circular1")
 data("femur_right_linear1")

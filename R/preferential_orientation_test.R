@@ -27,6 +27,7 @@
 #' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
 #' example_pref_orientation1 <- preferential_orientation_test(example_calculate_orientations_1)
 #' example_pref_orientation2 <- preferential_orientation_test(example_calculate_orientations_2)
+#' @export
 
 
 preferential_orientation_test <- function(circular_object) {

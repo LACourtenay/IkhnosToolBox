@@ -36,7 +36,11 @@
 #' example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 #' example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 #' example_sp_object2 <- extract_spatial_data(example_data2, "linear")
-#' example_distance_matrices <- sp_distance_matrices(example_sp_object1, example_sp_object2, name_1 = "circular", name_2 = "linear")
+#' example_distance_matrices <- sp_distance_matrices(
+#'   example_sp_object1, example_sp_object2,
+#'   name_1 = "circular", name_2 = "linear"
+#' )
+#' @export
 
 sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
                               name_1, name_2,

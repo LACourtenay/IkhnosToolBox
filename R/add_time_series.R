@@ -57,6 +57,7 @@
 #' r1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
 #' t1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
 #' time_series_3 <- create_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
+#' @export
 
 
 add_time_series <- function(

@@ -38,6 +38,7 @@
 #' load_marks(femur_right_circular1, mark_type = "circular", plot = TRUE, colour_value = "black")
 #' load_marks(femur_right_linear1, mark_type = "linear", plot = TRUE, colour_value = "red")
 #' save_3d_image("my_first_plot")
+#' @export
 
 load_marks <- function(data, file_name = NULL, mark_type = "circular",
                        delim = ",", plot = FALSE,

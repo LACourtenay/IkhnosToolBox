@@ -35,6 +35,7 @@
 #' example_calculate_orientations_2 <- calculate_orientations(example_circ_2, right_femur)
 #' example_circ_analysis1 <- descriptive_circular_analysis(example_calculate_orientations_1)
 #' example_circ_analysis2 <- descriptive_circular_analysis(example_calculate_orientations_2)
+#' @export
 
 descriptive_circular_analysis <- function(circular_object) {
 

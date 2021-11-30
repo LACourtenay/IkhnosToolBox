@@ -20,6 +20,7 @@
 #' load_marks(mark_type = "circular", plot = TRUE, colour_value = "black")
 #' load_marks(mark_type = "linear", plot = TRUE, colour_value = "red")
 #' save_3d_image("my_first_plot")
+#' @export
 
 load_bone <- function(bone_data) {
 

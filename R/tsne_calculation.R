@@ -36,6 +36,11 @@
 #' 2nd International Conference on Knowledge Discovery and Data Mining, Munchen, Germany.
 #' \code{\link{https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf}}
 #'
+#' @section Notes:
+#' Due to the stochastic nature of the tSNE algorithm, the authors recommend
+#' executing this function a number of times to obtain the most reliable overview
+#' of the results.
+#'
 #' @return A \code{data.frame} object containing the x, y coordinates and the
 #' associated group represented in the graph that appears in
 #' a popup window if create_external_plot = TRUE.
@@ -57,6 +62,7 @@
 #' sample1_sample2 <- rbind(sample1_coords, sample2_coords)
 #' group_labels <- as.factor(c(rep("circular", nrow(sample1_coords)), rep("linear", nrow(sample2_coords))))
 #' tsne_calculation(sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"))
+#' @export
 
 tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, perplexity = NULL,
                              cluster_eps = 3,
