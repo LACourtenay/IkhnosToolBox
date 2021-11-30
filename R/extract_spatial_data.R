@@ -23,8 +23,7 @@
 #' data("femur_right_circular1")
 #' example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_sp_object <- extract_spatial_data(
-#'   example_data, "circular",
-#'   create_external_plot = FALSE
+#'   example_data, "circular"
 #' )
 #' @export
 
@@ -32,7 +31,7 @@ extract_spatial_data <- function(input_data,
                                  mark_type = "circular",
                                  print_summary = TRUE,
                                  plot_results = FALSE,
-                                 create_external_plot = TRUE) {
+                                 create_external_plot = FALSE) {
 
   if(missing(input_data)) {
     stop("Warning no input data")
@@ -90,7 +89,7 @@ extract_spatial_data <- function(input_data,
 
   if (plot_results == TRUE) {
     if (create_external_plot == TRUE) {
-      X11(); plot(spatial_data, main = "",
+      dev.new(); plot(spatial_data, main = "",
                   pch = 1, bg = "white", cex = 1.2)
     } else {
       plot(spatial_data, main = "",

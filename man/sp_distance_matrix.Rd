@@ -4,7 +4,11 @@
 \alias{sp_distance_matrix}
 \title{Nearest Neighbour distance matrix.}
 \usage{
-sp_distance_matrix(spatial_object, name = "marks", create_external_plot = TRUE)
+sp_distance_matrix(
+  spatial_object,
+  name = "marks",
+  create_external_plot = FALSE
+)
 }
 \arguments{
 \item{spatial_object}{A pp3 object containing the 3-dimensional point pattern}
@@ -34,8 +38,7 @@ data("femur_right_circular1")
 example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 example_sp_object <- extract_spatial_data(example_data, "circular")
 example_distance_matrix <- sp_distance_matrix(
-  example_sp_object, name = "marks",
-  create_external_plot = FALSE
+  example_sp_object, name = "marks"
 )
 }
 \seealso{

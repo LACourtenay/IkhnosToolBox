@@ -65,8 +65,7 @@
 #'   rep("linear", nrow(sample2_coords)))
 #' )
 #' tsne_calculation(
-#'   sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"),
-#'   create_external_plot = FALSE
+#'   sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green")
 #' )
 #' @export
 
@@ -74,7 +73,7 @@ tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, per
                              cluster_eps = 3,
                              plot_colours = NULL,
                              point_size = 2,
-                             create_external_plot = TRUE) {
+                             create_external_plot = FALSE) {
 
   if(missing(data)) {
     stop("The user has not specified the data to be used for tSNE calculations")
@@ -285,9 +284,9 @@ tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, per
 
   if (create_external_plot == TRUE) {
     if (!is.null(labels)) {
-      X11(width = 15, height = 8); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+      dev.new(width = 15, height = 8, noRStudioGD = TRUE); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
     } else {
-      X11(); gridExtra::grid.arrange(tsne_cluster_plot)
+      dev.new(); gridExtra::grid.arrange(tsne_cluster_plot)
     }
   } else {
     if (!is.null(labels)) {

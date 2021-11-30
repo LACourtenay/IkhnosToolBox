@@ -7,7 +7,7 @@
 perform_CSR_analyses(
   spatial_object,
   n_permutations = 1000,
-  create_external_plot = TRUE
+  create_external_plot = FALSE
 )
 }
 \arguments{
@@ -77,8 +77,7 @@ data("femur_right_circular1")
 example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 example_sp_object <- extract_spatial_data(example_data, "circular")
 example_CSR_analyses <- perform_CSR_analyses(
-  example_sp_object, n_permutations = 101,
-  create_external_plot = FALSE
+  example_sp_object, n_permutations = 101
 )
 }
 \seealso{

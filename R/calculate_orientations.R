@@ -39,17 +39,15 @@
 #' example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear")
 #' example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear")
 #' example_calculate_orientations_1 <- calculate_orientations(
-#'   example_circ_1, right_femur,
-#'   create_external_plot = FALSE
+#'   example_circ_1, right_femur
 #' )
 #' example_calculate_orientations_2 <- calculate_orientations(
-#'   example_circ_2, right_femur,
-#'   create_external_plot = FALSE
+#'   example_circ_2, right_femur
 #' )
 #' @export
 
 calculate_orientations <- function(linear_data, bone,
-                                   create_external_plot = TRUE) {
+                                   create_external_plot = FALSE) {
 
   # maybe to ensure that data is linear, a linear_data class should be created...?
 
@@ -130,7 +128,7 @@ calculate_orientations <- function(linear_data, bone,
                                  alpha = 2.5)
 
   if (create_external_plot == TRUE) {
-    X11(width = 10, height = 10)
+    dev.new(width = 10, height = 10)
   } else {
     par(mfrow = c(1,2))
   }
@@ -164,7 +162,7 @@ calculate_orientations <- function(linear_data, bone,
   circ <- c(circ_obj, circ_2)
 
   if (create_external_plot == TRUE) {
-    X11(width = 10, height = 10)
+    dev.new(width = 10, height = 10, noRStudioGD = TRUE)
   }
 
   circular::rose.diag(circ, bins = 16, col = "darkgrey", cex = 1.5, prop = 1.3)

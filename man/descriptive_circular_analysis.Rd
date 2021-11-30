@@ -35,12 +35,10 @@ data("right_femur")
 example_circ_1 <- load_marks(femur_right_linear1, mark_type = "linear")
 example_circ_2 <- load_marks(femur_right_linear2, mark_type = "linear")
 example_calculate_orientations_1 <- calculate_orientations(
-  example_circ_1, right_femur,
-  create_external_plot = FALSE
+  example_circ_1, right_femur
 )
 example_calculate_orientations_2 <- calculate_orientations(
-  example_circ_2, right_femur,
-  create_external_plot = FALSE
+  example_circ_2, right_femur
 )
 example_circ_analysis1 <- descriptive_circular_analysis(example_calculate_orientations_1)
 example_circ_analysis2 <- descriptive_circular_analysis(example_calculate_orientations_2)

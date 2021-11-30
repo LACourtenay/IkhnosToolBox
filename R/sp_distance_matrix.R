@@ -24,14 +24,13 @@
 #' example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_sp_object <- extract_spatial_data(example_data, "circular")
 #' example_distance_matrix <- sp_distance_matrix(
-#'   example_sp_object, name = "marks",
-#'   create_external_plot = FALSE
+#'   example_sp_object, name = "marks"
 #' )
 #' @export
 
 
 sp_distance_matrix <- function(spatial_object, name = "marks",
-                               create_external_plot = TRUE) {
+                               create_external_plot = FALSE) {
 
   `%!in%` = Negate(`%in%`)
 
@@ -52,7 +51,7 @@ sp_distance_matrix <- function(spatial_object, name = "marks",
   pd_1 <- spatstat.geom::nndist(spatial_object)
 
   if(create_external_plot == TRUE) {
-    X11(); plot(pd_1, pch = 19, xlab = "Nearest Neighbour Distance", ylab = "Index",
+    dev.new(); plot(pd_1, pch = 19, xlab = "Nearest Neighbour Distance", ylab = "Index",
                 main = paste("Distance between ", name, sep = ""))
   } else {
     plot(pd_1, pch = 19, xlab = "Nearest Neighbour Distance", ylab = "Index",

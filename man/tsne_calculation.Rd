@@ -13,7 +13,7 @@ tsne_calculation(
   cluster_eps = 3,
   plot_colours = NULL,
   point_size = 2,
-  create_external_plot = TRUE
+  create_external_plot = FALSE
 )
 }
 \arguments{
@@ -91,8 +91,7 @@ group_labels <- as.factor(
   rep("linear", nrow(sample2_coords)))
 )
 tsne_calculation(
-  sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"),
-  create_external_plot = FALSE
+  sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green")
 )
 }
 \seealso{

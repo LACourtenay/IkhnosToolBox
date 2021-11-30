@@ -38,14 +38,13 @@
 #' example_sp_object2 <- extract_spatial_data(example_data2, "linear")
 #' example_distance_matrices <- sp_distance_matrices(
 #'   example_sp_object1, example_sp_object2,
-#'   name_1 = "circular", name_2 = "linear",
-#'   create_external_plot = FALSE
+#'   name_1 = "circular", name_2 = "linear"
 #' )
 #' @export
 
 sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
                               name_1, name_2,
-                              create_external_plot = TRUE) {
+                              create_external_plot = FALSE) {
 
 
   `%!in%` = Negate(`%in%`)
@@ -77,7 +76,7 @@ sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
   pd_2 <- spatstat.geom::nndist(spatial_object_2)
 
   if(create_external_plot == TRUE) {
-    X11(); par(mfrow = c(1,2))
+    dev.new(); par(mfrow = c(1,2))
   } else {
     par(mfrow = c(1,2))
   }
@@ -89,7 +88,7 @@ sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
   par(mfrow = c(1,1))
 
   if(create_external_plot == TRUE) {
-    X11(); par(mfrow = c(1,1))
+    dev.new(); par(mfrow = c(1,1))
   } else {
     par(mfrow = c(1,1))
   }

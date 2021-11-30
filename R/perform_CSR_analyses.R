@@ -66,13 +66,12 @@
 #' example_data <- load_marks(femur_right_circular1, mark_type = "circular")
 #' example_sp_object <- extract_spatial_data(example_data, "circular")
 #' example_CSR_analyses <- perform_CSR_analyses(
-#'   example_sp_object, n_permutations = 101,
-#'   create_external_plot = FALSE
+#'   example_sp_object, n_permutations = 101
 #' )
 #' @export
 
 perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
-                                 create_external_plot = TRUE) {
+                                 create_external_plot = FALSE) {
 
   `%!in%` = Negate(`%in%`)
 
@@ -128,8 +127,8 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
   for (i in 1:2) {
 
     if (create_external_plot == TRUE) {
-      X11(
-        width = 15, height = 6.5
+      dev.new(
+        width = 15, height = 6.5, noRStudioGD = TRUE
       ); par(mfrow = c(1,3))
     } else {
       par(mfrow = c(1,3))
@@ -150,7 +149,7 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
   par(mfrow = c(1,1))
 
   if(create_external_plot == TRUE) {
-    X11(); plot(PCF_plot, main = "K Pair Correlation Function")
+    dev.new(); plot(PCF_plot, main = "K Pair Correlation Function")
   } else {
     plot(PCF_plot, main = "K Pair Correlation Function")
   }

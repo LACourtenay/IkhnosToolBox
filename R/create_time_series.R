@@ -41,15 +41,14 @@
 #' r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' time_series_1 <- create_time_series(
-#'   h = h1, f = f1, r = r1, t = t1,
-#'   create_external_plot = FALSE
+#'   h = h1, f = f1, r = r1, t = t1
 #' )
 #' @export
 
 create_time_series <- function(
   h = NULL, f = NULL, r = NULL, t = NULL, mt = NULL, mc = NULL,
   colour = "black",
-  create_external_plot = TRUE
+  create_external_plot = FALSE
 ) {
 
   if (colour != "black") {
@@ -68,7 +67,7 @@ create_time_series <- function(
   # figure
 
   if(create_external_plot == TRUE) {
-    X11(width = 15, height = 7.5); par(mar = c(5.1, 5, 4.1, 2.))
+    dev.new(width = 15, height = 7.5, noRStudioGD = TRUE); par(mar = c(5.1, 5, 4.1, 2.))
   } else {
     par(mar = c(5.1, 5, 4.1, 2.))
   }
