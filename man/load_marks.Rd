@@ -5,6 +5,7 @@
 \title{Load marks from IKHNOS files.}
 \usage{
 load_marks(
+  data,
   file_name = NULL,
   mark_type = "circular",
   delim = ",",

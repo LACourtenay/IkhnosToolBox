@@ -73,6 +73,10 @@ time_series_clustering <- function(series_dataframe,
     )
   }
 
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   split_dataframe <- split(series_database, series_database$Sample)
 
   wavelet_array <- array(

@@ -40,9 +40,24 @@ sp_distance_matrices <- function(spatial_object_1, spatial_object_2,
 
   `%!in%` = Negate(`%in%`)
 
+  if(missing(spatial_object_1) | missing(spatial_object_2)) {
+    stop("No spatial objects have been defined.")
+  }
+
   if("pp3" %!in% class(spatial_object_1) |
      "pp3" %!in% class(spatial_object_2)) {
     stop("Invalid spatial objects")
+  }
+
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
+  if(missing(name_1)) {
+    stop("name_1 is missing")
+  }
+  if(missing(name_2)) {
+    stop("name_2 is missing")
   }
 
   name_1 <- as.character(name_1)

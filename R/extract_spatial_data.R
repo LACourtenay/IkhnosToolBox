@@ -32,6 +32,18 @@ extract_spatial_data <- function(input_data,
     stop("Please select between circular or linear mark types")
   }
 
+  if (!is.logical(print_summary)) {
+    stop("print_summary plot must be either TRUE or FALSE")
+  }
+
+  if (!is.logical(plot_results)) {
+    stop("plot_results must be either TRUE or FALSE")
+  }
+
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   if (mark_type == "circular") {
 
     # in reality... will the columns always be named x1, y1 and z1?

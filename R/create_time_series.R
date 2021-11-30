@@ -47,6 +47,17 @@ create_time_series <- function(
   create_external_plot = TRUE
 ) {
 
+  if (colour != "black") {
+    colour_bool <- check_colours(colour)
+    if (FALSE %in% colour_bool) {
+      stop("Invalid colour provided for argument 'colour'")
+    }
+  }
+
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   ts <- extract_ts_data(h = h, f = f, r = r, t = t, mt = mt, mc = mc)
 
   # figure

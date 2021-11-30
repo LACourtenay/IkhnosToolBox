@@ -57,13 +57,11 @@ group_labels <- as.factor(c(
   rep("linear", nrow(sample2_coords))
 ))
 
+tsne_calculation(sample1_sample2, group_labels, bone = right_femur)
 
-tsne_calculation(sample1_sample2, group_labels)
+tsne_scores <- tsne_calculation(sample1_sample2)$plot_data
 
-# 1st note - X11 is platform specific!
-# 2nd not - unsupervised approaches for tsne?????
-
-tsne_calculation(sample1_sample2)
+tsne_calculation(sample1_sample2, bone = right_femur) # see what Julia thinks...
 
 #
 

@@ -26,7 +26,9 @@ Imports:
     abind (>= 1.4),
     factoextra (>= 1.0),
     gridExtra (>= 2.3),
-    alphahull(>= 2.2)
+    alphahull(>= 2.2),
+    RColorBrewer (>= 1.1),
+    fpc (>= 2.2)
 Suggests:
     FactoMineR (>= 2.4)
 RoxygenNote: 7.1.2

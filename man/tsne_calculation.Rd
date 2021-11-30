@@ -6,9 +6,11 @@
 \usage{
 tsne_calculation(
   data,
+  bone,
   labels = NULL,
   n_iterations = 1000,
   perplexity = NULL,
+  cluster_eps = 3,
   plot_colours = NULL,
   point_size = 2,
   create_external_plot = TRUE
@@ -16,6 +18,8 @@ tsne_calculation(
 }
 \arguments{
 \item{data}{An array containing the 3-dimensional points.}
+
+\item{bone}{A 3D model of the bone used for analyses provided by data()}
 
 \item{labels}{A factor containing the group association for each dataset.}
 
@@ -26,6 +30,9 @@ permutations for optimization (default = 1000).}
 of neighbors. Larger datasets require a larger perplexity, typical values are
 between 5 and 50. By default the optimal parameter is calculated for each
 dataset.}
+
+\item{cluster_eps}{A positive, non-zero numeric value used to define the eps
+parameter in the DBSCAN clustering algorithm. If no value is provided, 3 is used as default.}
 
 \item{plot_colours}{A character vector to assign a specific colour to each
 label.}
@@ -45,21 +52,34 @@ a popup window if create_external_plot = TRUE.
 The present function provides a data exploration and
 visualisation technique based on a non-linear dimensionality reduction
 algorithm that constructs a low dimensional embedding of high-dimensional
-data for the identification of patterns and trends in the data.
+data for the identification of patterns and trends in the data. An additional
+non-supervised machine learning algorithm (DBSCAN) is used in this function to
+detect patterns in the new feature space, which can be used to define groups
+of marks.
 }
+\section{Bibliography}{
+
+Hinton, G.E.; Roweis, S.T. (2003) Stochastic Neighbor Embedding, Advances in Neural
+Information Processing Systems. 857-864
+}
+
 \examples{
-data(femur_right_circular1) #COMPROBAR ESTO
-data(femur_right_linear1) #COMPROBAR ESTO
-example_data1 <- load_marks(femur_right_circular1, mark_type = "circular") #ESTO DA ERROR POR NO CARGAR EL RDA
-example_data2 <- load_marks(femur_right_linear1, mark_type = "linear") #ESTO DA ERROR POR NO CARGAR EL RDA
+data(femur_right_circular1)
+data(femur_right_linear1)
+data(right_femur)
+example_data1 <- load_marks(femur_right_circular1, mark_type = "circular")
+example_data2 <- load_marks(femur_right_linear1, mark_type = "linear")
 example_sp_object1 <- extract_spatial_data(example_data1, "circular")
 example_sp_object2 <- extract_spatial_data(example_data2, "circular")
 sample1_coords <- as.matrix(example_sp_object1)
 sample2_coords <- as.matrix(example_sp_object2)
 sample1_sample2 <- rbind(sample1_coords, sample2_coords)
 group_labels <- as.factor(c(rep("circular", nrow(sample1_coords)), rep("linear", nrow(sample2_coords))))
-tsne_calculation(sample1_sample2, group_labels, plot_colours = c("red", "green"))
+tsne_calculation(sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"))
 }
 \seealso{
-\code{\link{Rtsne}}
+\code{\link{Rtsne}} for tSNE, \code{\link{fpc}} for DBSCAN
+}
+\author{
+Lloyd A. Courtenay
 }

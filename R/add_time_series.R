@@ -62,6 +62,13 @@ add_time_series <- function(
   colour = "red"
 ) {
 
+  if (colour != "red") {
+    colour_bool <- check_colours(colour)
+    if (FALSE %in% colour_bool) {
+      stop("Invalid colour provided for argument 'colour'")
+    }
+  }
+
   active_window <- try(points(1,2), silent = TRUE)
 
   if(class(active_window) == "try-error") {

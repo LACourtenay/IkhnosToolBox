@@ -56,12 +56,24 @@ wavelet_analysis <- function (first_ts, second_ts, sample_1_name, sample_2_name,
     )
   }
 
+  if(!is.character(x_lab)) {
+    x_lab <- as.character(x_lab)
+  }
+
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   if(missing(sample_1_name)) {
     stop("Missing sample 1 name")
+  } else {
+    sample_1_name <- as.character(sample_1_name)
   }
 
   if(missing(sample_2_name)) {
     stop("Missing sample 2 name")
+  } else {
+    sample_2_name <- as.character(sample_2_name)
   }
 
   if (n_iterations <= 0 | n_iterations %% 1 != 0) {

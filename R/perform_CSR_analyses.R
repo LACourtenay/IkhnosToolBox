@@ -58,6 +58,10 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
     stop("The minimum number of permutations required for this function is 101")
   }
 
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   cat("Generating simulations of Complete Spatial Randomness...\n")
   pb <- txtProgressBar(min = 0, max = 4,
                        style = 3, width = 100, char = "=")

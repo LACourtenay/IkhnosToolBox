@@ -4,16 +4,12 @@
 \alias{sp_distance_matrix}
 \title{Nearest Neighbour distance matrix.}
 \usage{
-sp_distance_matrix(
-  spatial_object,
-  name_1 = "marks",
-  create_external_plot = TRUE
-)
+sp_distance_matrix(spatial_object, name = "marks", create_external_plot = TRUE)
 }
 \arguments{
 \item{spatial_object}{A pp3 object containing the 3-dimensional point pattern}
 
-\item{name_1}{A string to define the title of the plot.}
+\item{name}{A string to define the title of the plot.}
 
 \item{create_external_plot}{A boolean TRUE or FALSE option (default = TRUE)
 to create a popup window with the plot of the distances between the marks.}

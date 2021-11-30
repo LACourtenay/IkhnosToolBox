@@ -60,6 +60,10 @@ calculate_orientations <- function(linear_data, bone,
     )
   }
 
+  if (!is.logical(create_external_plot)) {
+    stop("create_external_plot must be either TRUE or FALSE")
+  }
+
   example_bone <- bone
 
   start_mark <- data.frame(
