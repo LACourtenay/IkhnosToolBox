@@ -32,7 +32,7 @@
 #' Information Processing Systems. 857-864
 #'
 #' @return A \code{data.frame} object containing the x, y coordinates and the
-#' associated group represented in the \code{tsne_plot_object} that appears in
+#' associated group represented in the graph that appears in
 #' a popup window if create_external_plot = TRUE.
 #'
 #' @seealso \code{\link{Rtsne}} for tSNE, \code{\link{fpc}} for DBSCAN
@@ -267,15 +267,18 @@ tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, per
     ggplot2::geom_hline(yintercept = 0, colour = "black", linetype = "dashed", size = 0.5)
 
   if (create_external_plot == TRUE) {
-    X11(); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+    if (!is.null(labels)) {
+      X11(); gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+    } else {
+      X11(); gridExtra::grid.arrange(tsne_cluster_plot)
+    }
   } else {
-    gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+    if (!is.null(labels)) {
+      gridExtra::grid.arrange(tsne_plot, tsne_cluster_plot, ncol = 2)
+    } else {
+      gridExtra::grid.arrange(tsne_cluster_plot)
+    }
   }
 
-  #return(list(
-  #  tsne_cluster_plot = tsne_cluster_plot,
-  #  tsne_plot_object = tsne_plot,
-  #  plot_data = dim_red
-  #))
   return(dim_red)
 }

@@ -45,7 +45,7 @@ to generate an external window for the t-SNE plot.}
 }
 \value{
 A \code{data.frame} object containing the x, y coordinates and the
-associated group represented in the \code{tsne_plot_object} that appears in
+associated group represented in the graph that appears in
 a popup window if create_external_plot = TRUE.
 }
 \description{
