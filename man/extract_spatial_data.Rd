@@ -22,6 +22,9 @@ a summary of the data included in the spatial object.}
 
 \item{plot_results}{A boolean TRUE or FALSE option (default = FALSE) to plot
 the spatial information.}
+
+\item{create_external_plot}{A boolean TRUE or FALSE (default = TRUE) option
+to create a popup window with the plot for mark frequency for all the samples.}
 }
 \value{
 A spatial object for statistical analyses.

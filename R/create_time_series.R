@@ -40,7 +40,10 @@
 #' f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
-#' time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
+#' time_series_1 <- create_time_series(
+#'   h = h1, f = f1, r = r1, t = t1,
+#'   create_external_plot = FALSE
+#' )
 #' @export
 
 create_time_series <- function(

@@ -11,6 +11,8 @@
 #' to visualise marks on the 3D model, and \code{save_3d_image} to
 #' save the window to a *.png file.
 #'
+#' @param data A dataframe loaded externally from the library,
+#' using either data() or the user's own data.
 #' @param file_name A string containing the path of the Ikhnos product file.
 #' If no file name is specified, then a popup window will appear allowing the
 #' user to locate the file in their system

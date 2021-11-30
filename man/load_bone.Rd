@@ -7,7 +7,7 @@
 load_bone(bone_data)
 }
 \arguments{
-\item{bone}{An IkhnosToolBox data object (e.g. data(left_femur)) containing
+\item{bone_data}{An IkhnosToolBox data object (e.g. data(left_femur)) containing
 the 3d model of the bone being studied.}
 }
 \value{

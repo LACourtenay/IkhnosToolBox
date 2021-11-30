@@ -15,6 +15,9 @@ load_marks(
 )
 }
 \arguments{
+\item{data}{A dataframe loaded externally from the library,
+using either data() or the user's own data.}
+
 \item{file_name}{A string containing the path of the Ikhnos product file.
 If no file name is specified, then a popup window will appear allowing the
 user to locate the file in their system}

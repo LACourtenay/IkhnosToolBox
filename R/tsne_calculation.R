@@ -60,7 +60,10 @@
 #' sample1_coords <- as.matrix(example_sp_object1)
 #' sample2_coords <- as.matrix(example_sp_object2)
 #' sample1_sample2 <- rbind(sample1_coords, sample2_coords)
-#' group_labels <- as.factor(c(rep("circular", nrow(sample1_coords)), rep("linear", nrow(sample2_coords))))
+#' group_labels <- as.factor(
+#'   c(rep("circular", nrow(sample1_coords)),
+#'   rep("linear", nrow(sample2_coords)))
+#' )
 #' tsne_calculation(sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green"))
 #' @export
 

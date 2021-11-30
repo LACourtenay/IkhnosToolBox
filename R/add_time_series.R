@@ -36,27 +36,30 @@
 #' f1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' r1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
 #' t1 <- load_marks(femur_right_circular1, mark_type = "circular", plot = FALSE)
-#' time_series_1 <- create_time_series(h = h1, f = f1, r = r1, t = t1)
+#' time_series_1 <- create_time_series(
+#'   h = h1, f = f1, r = r1, t = t1,
+#'   create_external_plot = FALSE
+#' )
 #'
 #' data("humerus_right_circular2")
 #' data("femur_right_circular2")
 #' data("radius_right_circular2")
 #' data("tibia_right_circular2")
-#' h1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
-#' f1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
-#' r1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
-#' t1 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
-#' time_series_2 <- create_time_series(h = h2, f = f2, r = r2, t = t2, colour = "red")
+#' h2 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
+#' f2 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
+#' r2 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
+#' t2 <- load_marks(femur_right_circular2, mark_type = "circular", plot = FALSE)
+#' time_series_2 <- add_time_series(h = h2, f = f2, r = r2, t = t2, colour = "red")
 #'
 #' data("humerus_right_circular3")
 #' data("femur_right_circular3")
 #' data("radius_right_circular3")
 #' data("tibia_right_circular3")
-#' h1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
-#' f1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
-#' r1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
-#' t1 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
-#' time_series_3 <- create_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
+#' h3 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
+#' f3 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
+#' r3 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
+#' t3 <- load_marks(femur_right_circular3, mark_type = "circular", plot = FALSE)
+#' time_series_3 <- add_time_series(h = h3, f = f3, r = r3, t = t3, colour = "blue")
 #' @export
 
 

@@ -5,7 +5,7 @@
 #' the marks in the sample.
 #'
 #' @param spatial_object A pp3 object containing the 3-dimensional point pattern
-#' @param name_1 A string to define the title of the plot.
+#' @param name A string to define the title of the plot.
 #' @param create_external_plot A boolean TRUE or FALSE option (default = TRUE)
 #' to create a popup window with the plot of the distances between the marks.
 #'

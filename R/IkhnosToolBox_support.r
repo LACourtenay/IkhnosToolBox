@@ -9,6 +9,13 @@
 #' cut marks and tooth scores on long bones and their analysis for the identification and
 #' comparison of orientation and distribution patterns along the bone surface. Functions
 #' are available to perform analyses within samples as well as across different samples.
+#'
+#' @import stats
+#' @import utils
+#' @import graphics
+#' @import grDevices
+#' @import utils
+#'
 NULL
 
 #' x, y and z coordinates for pits on right large-sized ungulate femora

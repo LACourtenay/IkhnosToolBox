@@ -6,7 +6,7 @@
 #' \code{load_marks} to visualise marks on the 3D model, and
 #' \code{save_3d_image}nto save the window to a *.png file.
 #'
-#' @param bone An IkhnosToolBox data object (e.g. data(left_femur)) containing
+#' @param bone_data An IkhnosToolBox data object (e.g. data(left_femur)) containing
 #' the 3d model of the bone being studied.
 #'
 #' @return A 3D popup window with the selected bone mesh points.
