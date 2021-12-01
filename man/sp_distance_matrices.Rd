@@ -13,10 +13,9 @@ sp_distance_matrices(
 )
 }
 \arguments{
-\item{spatial_object_1}{A pp3 object containing a 3-dimensional point pattern.}
+\item{spatial_object_1}{A pp3 object containing a 3D point pattern.}
 
-\item{spatial_object_2}{A pp3 object containing a second 3-dimensional point
-pattern.}
+\item{spatial_object_2}{A pp3 object containing a second 3D point pattern.}
 
 \item{name_1}{A string to define the title of the plot that corresponds to
 \code{spatial_object_1}.}
@@ -24,17 +23,13 @@ pattern.}
 \item{name_2}{A string to define the title of the plot that corresponds to
 \code{spatial_object_2}.}
 
-\item{create_external_plot}{A boolean TRUE or FALSE (default = TRUE) option
+\item{create_external_plot}{A boolean TRUE or FALSE (default = FALSE) option
 to create two popup windows with the plots of the distances between the marks
 within and between each sample.}
 }
 \value{
-If create_external_plot = TRUE, then the function returns two popup
-windows with:
-1. two plots for the calculated nearest neighbour distances between marks
-within each sample
-2. one plot for the calculated nearest neighbour distances between marks
-between the two samples
+Plots for the visualisation of the calculated nearest neighbour distances
+between marks within and between samples.
 }
 \description{
 The present function is used to calculate the nearest neighbour

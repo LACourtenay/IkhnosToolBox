@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare_two_sample_orientations.R
 \name{compare_two_sample_orientations}
 \alias{compare_two_sample_orientations}
-\title{Pair comparison for homogeneity on two orientation patterns.}
+\title{Pair comparison for homogeneity.}
 \usage{
 compare_two_sample_orientations(sample_1, sample_2)
 }

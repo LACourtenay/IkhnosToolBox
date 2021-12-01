@@ -7,8 +7,8 @@
 load_bone(bone_data)
 }
 \arguments{
-\item{bone_data}{An IkhnosToolBox data object (e.g. data(left_femur)) containing
-the 3d model of the bone being studied.}
+\item{bone_data}{An IkhnosToolBox data object (e.g., data(left_femur)) containing
+the 3D model of the bone being studied.}
 }
 \value{
 A 3D popup window with the selected bone mesh points.
@@ -17,7 +17,7 @@ A 3D popup window with the selected bone mesh points.
 The present function creates a 3D popup window visualising
 the bone under study. This can then be combined with functions such as
 \code{load_marks} to visualise marks on the 3D model, and
-\code{save_3d_image}nto save the window to a *.png file.
+\code{save_3d_image} to save the window to a *.png file.
 }
 \examples{
 data("right_femur")

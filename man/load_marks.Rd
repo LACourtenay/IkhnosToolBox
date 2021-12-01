@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_marks.R
 \name{load_marks}
 \alias{load_marks}
-\title{Load marks from IKHNOS files.}
+\title{Load marks from Ikhnos files.}
 \usage{
 load_marks(
   data,
@@ -15,7 +15,7 @@ load_marks(
 )
 }
 \arguments{
-\item{data}{A dataframe loaded externally from the library,
+\item{data}{A data frame loaded externally from the library,
 using either data() or the user's own data.}
 
 \item{file_name}{A string containing the path of the Ikhnos product file.
@@ -29,7 +29,7 @@ are "circular" or "linear".}
 product file.}
 
 \item{plot}{A boolean TRUE or FALSE option (default = FALSE) defining whether
-to produce a 3D plot of the marks.}
+to produce a 3D plot of the marks or not.}
 
 \item{colour_value}{A lower case string specifying the colour of the marks in
 the case where plot = TRUE.}
@@ -37,7 +37,7 @@ the case where plot = TRUE.}
 \item{mark_size}{The size of the points or lines produced in the 3D plot.}
 }
 \value{
-A \code{data.frame} object containing the data extracted from Ikhnos.
+A data frame object containing the data extracted from Ikhnos.
 If plot = TRUE, then a 3D visualisation of marks is also created.
 }
 \description{

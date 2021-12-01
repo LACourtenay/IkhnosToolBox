@@ -12,7 +12,7 @@ between the bone long axis and each linear mark.}
 }
 \value{
 A list with the results for Rayleigh uniformity test and the
-associated p value, being p < 0.05 indicative of a non-uniform distribution.
+associated p value, being a significant p value indicative of a non-uniform distribution.
 }
 \description{
 Function to conduct orientation analyses on scores and/or cut

@@ -34,19 +34,17 @@ Monte Carlo randomisation (default = 10000).}
 
 \item{x_lab}{A string to define the title of the x axis.It should coincide
 with the dimension selected for the \code{two_sample_histogram_distributions}
-function.}
+function (e.g., proximal-distal, medial-lateral, cranio-caudal)}
 
-\item{create_external_plot}{A boolean TRUE or FALSE (default = TRUE) option
+\item{create_external_plot}{A boolean TRUE or FALSE (default = FALSE) option
 to create a popup window with the plot for the wavelet coherence analysis.}
 }
 \value{
-If create_external_plot = TRUE, then the function returns a popup
-window with a biwavelet plot to visualise the dependence between
-\code{first_ts} and \code{second_ts}.
+A biwavelet plot to visualise the dependence between two samples.
 }
 \description{
 The present function is used to conduct wavelet coherence
-analyses to assess the dependence existing between two mark patterns.
+analyses to assess the dependence between two mark patterns.
 }
 \section{Bibliography}{
 

@@ -17,17 +17,17 @@ tsne_calculation(
 )
 }
 \arguments{
-\item{data}{An array containing the 3-dimensional points.}
+\item{data}{An array containing the 3D points.}
 
 \item{bone}{A 3D model of the bone used for analyses provided by data()}
 
 \item{labels}{A factor containing the group association for each dataset.}
 
 \item{n_iterations}{A positive, non-zero integer to define the number of
-permutations for optimization (default = 1000).}
+permutations for optimisation (default = 1000).}
 
 \item{perplexity}{A positive, non-zero integer to define the optimal number
-of neighbors. Larger datasets require a larger perplexity, typical values are
+of neighbours. Larger datasets require a larger perplexity, typical values are
 between 5 and 50. By default the optimal parameter is calculated for each
 dataset.}
 
@@ -40,13 +40,17 @@ label.}
 \item{point_size}{A non-negative integer to define the size of the points in
 the plot.}
 
-\item{create_external_plot}{A boolean TRUE or FALSE (default = TRUE) option
+\item{create_external_plot}{A boolean TRUE or FALSE (default = FALSE) option
 to generate an external window for the t-SNE plot.}
 }
 \value{
-A \code{data.frame} object containing the x, y coordinates and the
-associated group represented in the graph that appears in
-a popup window if create_external_plot = TRUE.
+A data frame object containing the x and y coordinates, and the
+associated group, as well as two plots for point pattern visualisation. The
+first graph illustrates the point pattern trends observed in both groups by
+group association, while the second one shows the clustering of the point
+patterns calculated by the DBSCAN algorithm. The assigned colours in the second
+graph correspond to those observed in the 3D popup window where
+the selected bone mesh points and the registered marks can be visualised.
 }
 \description{
 The present function provides a data exploration and
@@ -90,9 +94,7 @@ group_labels <- as.factor(
   c(rep("circular", nrow(sample1_coords)),
   rep("linear", nrow(sample2_coords)))
 )
-tsne_calculation(
-  sample1_sample2, right_femur, group_labels, plot_colours = c("red", "green")
-)
+tsne_calculation(sample1_sample2, group_labels, bone = right_femur)
 }
 \seealso{
 \code{\link{Rtsne}} for tSNE, \code{\link{fpc}} for DBSCAN

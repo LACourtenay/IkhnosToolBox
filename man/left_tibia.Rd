@@ -7,6 +7,9 @@
 \description{
 3D model of cervid left tibia
 }
+\details{
+sample property rights-Jose Yravedra
+}
 \references{
 in prep
 }

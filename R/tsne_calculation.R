@@ -26,18 +26,18 @@
 #' the plot.
 #' @param create_external_plot A boolean TRUE or FALSE (default = FALSE) option
 #' to generate an external window for the t-SNE plot.
-#' 
+#'
 #' @return A data frame object containing the x and y coordinates, and the
 #' associated group, as well as two plots for point pattern visualisation. The
 #' first graph illustrates the point pattern trends observed in both groups by
-#' group association, while the second one shows the clustering of the point 
+#' group association, while the second one shows the clustering of the point
 #' patterns calculated by the DBSCAN algorithm. The assigned colours in the second
-#' graph correspond to those observed in the 3D popup window where 
+#' graph correspond to those observed in the 3D popup window where
 #' the selected bone mesh points and the registered marks can be visualised.
 #'
 #' @seealso \code{\link{Rtsne}} for tSNE, \code{\link{fpc}} for DBSCAN
 #'
-#' @author Lloyd A. Courtenay 
+#' @author Lloyd A. Courtenay
 #'
 #' @section Bibliography:
 #' Hinton, G.E.; Roweis, S.T. (2003) Stochastic Neighbor Embedding, Advances in Neural
@@ -68,7 +68,7 @@
 #'   c(rep("circular", nrow(sample1_coords)),
 #'   rep("linear", nrow(sample2_coords)))
 #' )
-#' tsne_calculation(sample1_sample2, group_labels, bone = right femur)
+#' tsne_calculation(sample1_sample2, group_labels, bone = right_femur)
 #' @export
 
 tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, perplexity = NULL,

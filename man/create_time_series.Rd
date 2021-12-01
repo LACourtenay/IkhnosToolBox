@@ -37,17 +37,16 @@ marks in the first metacarpus sample.}
 \item{colour}{A lower case string specifying the colour of points and lines
 in the plot to represent the first set of samples.}
 
-\item{create_external_plot}{A boolean TRUE or FALSE (default = TRUE) option
+\item{create_external_plot}{A boolean TRUE or FALSE (default = FALSE) option
 to create a popup window with the plot for mark frequency for all the samples.}
 }
 \value{
-A data frame including the sequence and frequencies of all the samples.
-If create_external_plot = TRUE, then the function returns a popup
-window with a single plot showing the mark frequencies for all the elements.
+A data frame and a plot including the sequence and mark frequencies 
+of the loaded samples.
 }
 \description{
 The present function is used to generate a plot including the
-mark frequencies on several bone elements and provide the basis for the
+mark frequencies on several bone elements and to provide the basis for the
 addition of further samples.
 }
 \examples{

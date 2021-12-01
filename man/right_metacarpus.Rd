@@ -7,6 +7,9 @@
 \description{
 3D model of cervid right metacarpus
 }
+\details{
+sample property rights-Jose Yravedra
+}
 \references{
 in prep
 }

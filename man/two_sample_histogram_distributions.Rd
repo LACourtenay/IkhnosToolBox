@@ -15,32 +15,30 @@ two_sample_histogram_distributions(
 )
 }
 \arguments{
-\item{group_1}{A pp3 object containing a 3-dimensional point pattern.}
+\item{group_1}{A pp3 object containing a 3D point pattern.}
 
-\item{group_2}{A pp3 object containing a second 3-dimensional point pattern.}
+\item{group_2}{A pp3 object containing a second 3D point pattern.}
 
 \item{sample_1_name}{A string to define the label of \code{group_1}.}
 
 \item{sample_2_name}{A string to define the label of \code{group_2}.}
 
-\item{dimension}{A character to define the axis;\code{x} refers to proximal-
-distal axis,\code{y} to the lateral-medial axis, and \code{z} to the caudal-
-cranial axis.}
+\item{dimension}{A character to define the axis; "x" refers to the proximodistal axis,
+"y" to the mediolateral axis, and "z" to the craniocaudal axis.}
 
-\item{bone_type}{A string to define the element; possible bones are
-\code{femur}, \code{humerus}, \code{metacarpus}, \code{radius}, \code{tibia},
-\code{metatarsus}.}
+\item{bone_type}{A string to define the element; possible bones are "femur",
+"humerus", "metacarpus", "radius", "tibia, and "metatarsus".}
 
-\item{create_external_plot}{A boolean TRUE or FALSE option (default = TRUE)
-to create a popup window with the plot for the distribution of both samples}
+\item{create_external_plot}{A boolean TRUE or FALSE option (default = FALSE)
+to create a popup window with the plot for the distribution of both samples.}
 }
 \value{
-A \code{list} containing the number of breaks and counts of both
-samples.
+A list containing the number of breaks and counts for both samples,
+and a plot for the visual comparison of the mark frequencies along the selected axis.
 }
 \description{
 The present function is used to compare the frequency of marks
-along a specific bone axis between two samples.
+along a specific bone axis recorded in two different samples.
 }
 \section{Bibliography}{
 

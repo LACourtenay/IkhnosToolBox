@@ -11,16 +11,15 @@ sp_distance_matrix(
 )
 }
 \arguments{
-\item{spatial_object}{A pp3 object containing the 3-dimensional point pattern}
+\item{spatial_object}{A pp3 object containing the 3D point pattern}
 
 \item{name}{A string to define the title of the plot.}
 
-\item{create_external_plot}{A boolean TRUE or FALSE option (default = TRUE)
-to create a popup window with the plot of the distances between the marks.}
+\item{create_external_plot}{A boolean TRUE or FALSE option (default = FALSE)
+to create a popup window with the plot for the distances between the marks.}
 }
 \value{
-If create_external_plot = TRUE, then the function returns an popup
-window with the plot for the calculated nearest neighbour distances between
+Plot for the visualisation of the calculated nearest neighbour distances between
 marks within the sample.
 }
 \description{
