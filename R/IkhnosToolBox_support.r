@@ -185,6 +185,7 @@ NULL
 #' @name left_femur
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -194,6 +195,7 @@ NULL
 #' @name right_femur
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -203,6 +205,7 @@ NULL
 #' @name left_humerus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -212,6 +215,7 @@ NULL
 #' @name right_humerus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -221,6 +225,7 @@ NULL
 #' @name left_radius
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -230,6 +235,7 @@ NULL
 #' @name right_radius
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -239,6 +245,7 @@ NULL
 #' @name left_tibia
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -248,6 +255,7 @@ NULL
 #' @name right_tibia
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -257,6 +265,7 @@ NULL
 #' @name left_metacarpus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -266,6 +275,7 @@ NULL
 #' @name right_metacarpus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -275,6 +285,7 @@ NULL
 #' @name left_metatarsus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL
@@ -284,6 +295,7 @@ NULL
 #' @name right_metatarsus
 #' @docType data
 #' @author Julia Aramendi
+#' @details sample property rights-Jose Yravedra
 #' @references in prep
 #' @keywords 3D model
 NULL

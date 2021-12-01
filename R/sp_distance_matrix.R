@@ -4,13 +4,12 @@
 #' @description The present function is used to calculate the distances between
 #' the marks in the sample.
 #'
-#' @param spatial_object A pp3 object containing the 3-dimensional point pattern
+#' @param spatial_object A pp3 object containing the 3D point pattern
 #' @param name A string to define the title of the plot.
-#' @param create_external_plot A boolean TRUE or FALSE option (default = TRUE)
-#' to create a popup window with the plot of the distances between the marks.
+#' @param create_external_plot A boolean TRUE or FALSE option (default = FALSE)
+#' to create a popup window with the plot for the distances between the marks.
 #'
-#' @return If create_external_plot = TRUE, then the function returns an popup
-#' window with the plot for the calculated nearest neighbour distances between
+#' @return Plot for the visualisation of the calculated nearest neighbour distances between
 #' marks within the sample.
 #'
 #' @seealso \code{\link{sp_distance_matrices}}, \code{\link{nndist}}

@@ -2,23 +2,21 @@
 #' Create pair histograms.
 #'
 #' @description The present function is used to compare the frequency of marks
-#' along a specific bone axis between two samples.
+#' along a specific bone axis recorded in two different samples. 
 #'
-#' @param group_1 A pp3 object containing a 3-dimensional point pattern.
-#' @param group_2 A pp3 object containing a second 3-dimensional point pattern.
+#' @param group_1 A pp3 object containing a 3D point pattern.
+#' @param group_2 A pp3 object containing a second 3D point pattern.
 #' @param sample_1_name A string to define the label of \code{group_1}.
 #' @param sample_2_name A string to define the label of \code{group_2}.
-#' @param dimension A character to define the axis;\code{x} refers to proximal-
-#' distal axis,\code{y} to the lateral-medial axis, and \code{z} to the caudal-
-#' cranial axis.
-#' @param bone_type A string to define the element; possible bones are
-#' \code{femur}, \code{humerus}, \code{metacarpus}, \code{radius}, \code{tibia},
-#' \code{metatarsus}.
-#' @param create_external_plot A boolean TRUE or FALSE option (default = TRUE)
-#' to create a popup window with the plot for the distribution of both samples
+#' @param dimension A character to define the axis; "x" refers to the proximodistal axis,
+#' "y" to the mediolateral axis, and "z" to the craniocaudal axis.
+#' @param bone_type A string to define the element; possible bones are "femur",
+#' "humerus", "metacarpus", "radius", "tibia, and "metatarsus".
+#' @param create_external_plot A boolean TRUE or FALSE option (default = FALSE)
+#' to create a popup window with the plot for the distribution of both samples.
 #'
-#' @return A \code{list} containing the number of breaks and counts of both
-#' samples.
+#' @return A list containing the number of breaks and counts for both samples,
+#' and a plot for the visual comparison of the mark frequencies along the selected axis.
 #'
 #' @seealso \code{\link{wavelet_analysis}}, \code{\link{sm.density.compare}}.
 #'

@@ -1,5 +1,5 @@
 
-#' Load marks from IKHNOS files.
+#' Load marks from Ikhnos files.
 #'
 #' @description The present function allows the user to locate a file and load
 #' data derived from Ikhnos for both visualisation and preparation for
@@ -11,7 +11,7 @@
 #' to visualise marks on the 3D model, and \code{save_3d_image} to
 #' save the window to a *.png file.
 #'
-#' @param data A dataframe loaded externally from the library,
+#' @param data A data frame loaded externally from the library,
 #' using either data() or the user's own data.
 #' @param file_name A string containing the path of the Ikhnos product file.
 #' If no file name is specified, then a popup window will appear allowing the
@@ -19,14 +19,14 @@
 #' @param mark_type A lower case string specifying whether the marks under study
 #' are "circular" or "linear".
 #' @param plot A boolean TRUE or FALSE option (default = FALSE) defining whether
-#' to produce a 3D plot of the marks.
+#' to produce a 3D plot of the marks or not.
 #' @param delim A string specifying how marks are delimited within the Ikhnos
 #' product file.
 #' @param colour_value A lower case string specifying the colour of the marks in
 #' the case where plot = TRUE.
 #' @param mark_size The size of the points or lines produced in the 3D plot.
 #'
-#' @return A \code{data.frame} object containing the data extracted from Ikhnos.
+#' @return A data frame object containing the data extracted from Ikhnos.
 #' If plot = TRUE, then a 3D visualisation of marks is also created.
 #'
 #' @seealso \code{\link{load_bone}}, \code{\link{save_3d_image}},

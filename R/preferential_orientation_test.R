@@ -7,9 +7,8 @@
 #' @param circular_object A circular object containing the angles calculated
 #' between the bone long axis and each linear mark.
 #'
-#'
 #' @return A list with the results for Rayleigh uniformity test and the
-#' associated p value, being p < 0.05 indicative of a non-uniform distribution.
+#' associated p value, being a significant p value indicative of a non-uniform distribution.
 #'
 #' @seealso \code{\link{calculate_orientations}}, \code{\link{rayleigh.test}}.
 #'

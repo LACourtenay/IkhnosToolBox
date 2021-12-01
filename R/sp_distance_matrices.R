@@ -4,23 +4,18 @@
 #' @description The present function is used to calculate the nearest neighbour
 #' distance within and between two samples.
 #'
-#' @param spatial_object_1 A pp3 object containing a 3-dimensional point pattern.
-#' @param spatial_object_2 A pp3 object containing a second 3-dimensional point
-#' pattern.
+#' @param spatial_object_1 A pp3 object containing a 3D point pattern.
+#' @param spatial_object_2 A pp3 object containing a second 3D point pattern.
 #' @param name_1 A string to define the title of the plot that corresponds to
 #' \code{spatial_object_1}.
 #' @param name_2 A string to define the title of the plot that corresponds to
 #' \code{spatial_object_2}.
-#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' @param create_external_plot A boolean TRUE or FALSE (default = FALSE) option
 #' to create two popup windows with the plots of the distances between the marks
 #' within and between each sample.
 #'
-#' @return If create_external_plot = TRUE, then the function returns two popup
-#' windows with:
-#' 1. two plots for the calculated nearest neighbour distances between marks
-#' within each sample
-#' 2. one plot for the calculated nearest neighbour distances between marks
-#' between the two samples
+#' @return Plots for the visualisation of the calculated nearest neighbour distances
+#' between marks within and between samples.
 #'
 #' @seealso \code{\link{sp_distance_matrix}}, \code{\link{crossdist}},
 #' \code{\link{nndist}}

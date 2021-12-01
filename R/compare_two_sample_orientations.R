@@ -1,5 +1,5 @@
 
-#' Pair comparison for homogeneity on two orientation patterns.
+#' Pair comparison for homogeneity.
 #'
 #' @description Function to compare the orientation patterns observed in two
 #' different samples of linear marks (scores and/or cut marks)using the

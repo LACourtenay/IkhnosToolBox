@@ -10,8 +10,8 @@
 #' a summary of the data included in the spatial object.
 #' @param plot_results A boolean TRUE or FALSE option (default = FALSE) to plot
 #' the spatial information.
-#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
-#' to create a popup window with the plot for mark frequency for all the samples.
+#' @param create_external_plot A boolean TRUE or FALSE (default = FALSE) option
+#' to create a popup window with the plot for the mark frequency in the sample.
 #'
 #' @return A spatial object for statistical analyses.
 #'

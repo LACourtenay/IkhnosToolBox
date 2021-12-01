@@ -1,7 +1,7 @@
 
 #' Calculation of orientation of linear marks.
 #'
-#' @description Function to conduct orientation analyses of scores and/or cut
+#' @description Function to conduct orientation analyses on scores and/or cut
 #' marks.
 #'
 #' @param linear_data A string containing the path of the Ikhnos product file
@@ -10,15 +10,15 @@
 #' file in their system.
 #' @param bone An IkhnosToolBox data object (e.g., data(left_femur)) containing
 #' the 3d model of the bone being studied.
-#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' @param create_external_plot A boolean TRUE or FALSE (default = FALSE) option
 #' to create two popup windows; one for the visualisation of the location of the
 #' linear marks on the specified bone; and a second one with the rose diagram
 #' based on the orientations of the marks.
 #'
-#' @return A \code{circular} object containing the angles calculated between
-#' the bone long axis and each linear mark. If create_external_plot = TRUE, then
-#' two popup windows are created for the rose diagram and the visualisation
-#' of the linear marks on the specified bone.
+#' @return A circular object containing the angles calculated between
+#' the bone long axis and each linear mark. A rose diagram with the output of the
+#' calculated mark orientations, and a graph to visualise the location and
+#' orientation of the linear marks on the specified bone.
 #'
 #' @seealso \code{\link{load_marks}}, \code{\link{ashape}}, \code{\link{circular}},
 #' \code{\link{arrows.circular}}

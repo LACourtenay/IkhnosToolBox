@@ -2,7 +2,7 @@
 #' Bivariate wavelet analyses in frequency domains.
 #'
 #' @description The present function is used to conduct wavelet coherence
-#' analyses to assess the dependence existing between two mark patterns.
+#' analyses to assess the dependence between two mark patterns.
 #'
 #' @param first_ts A matrix (n rows x 2 columns) containing the time series of
 #' the first sample. The first column contains the time steps (breaks) and the
@@ -18,13 +18,11 @@
 #' Monte Carlo randomisation (default = 10000).
 #' @param x_lab A string to define the title of the x axis.It should coincide
 #' with the dimension selected for the \code{two_sample_histogram_distributions}
-#' function.
-#' @param create_external_plot A boolean TRUE or FALSE (default = TRUE) option
+#' function (e.g., proximal-distal, medial-lateral, cranio-caudal)
+#' @param create_external_plot A boolean TRUE or FALSE (default = FALSE) option
 #' to create a popup window with the plot for the wavelet coherence analysis.
 #'
-#' @return If create_external_plot = TRUE, then the function returns a popup
-#' window with a biwavelet plot to visualise the dependence between
-#' \code{first_ts} and \code{second_ts}.
+#' @return A biwavelet plot to visualise the dependence between two samples.
 #'
 #' @seealso \code{\link{wtc}}, \code{\link{plot.biwavelet}},
 #' \code{\link{two_sample_histogram_distributions}}.

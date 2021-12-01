@@ -5,7 +5,7 @@
 #' the location and variability of linear marks along the bone, including
 #' normality distribution tests such as skewness (measure of asymmetry) and
 #' kurtosis (measure of tailedness and peakedness), circular variance and
-#' dispersion, and the orientation of the radians and degrees.
+#' dispersion, and the orientation based on the calculation of radians and degrees.
 #'
 #' @param circular_object A circular object containing the angles calculated
 #' between the bone long axis and each linear mark.

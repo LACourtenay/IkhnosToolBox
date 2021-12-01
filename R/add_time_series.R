@@ -20,8 +20,8 @@
 #' in the plot to represent the additional set of samples.
 #'
 #' @return A data frame including the sequence and frequencies of all the
-#' additional samples. Mark frequencies are added to the plot in the popup
-#' window previously created with the \code{create_time_series} function.
+#' additional samples. Mark frequencies are added to the plot previously created
+#' with the \code{create_time_series} function.
 #'
 #' @seealso \code{\link{create_time_series}}, \code{\link{load_marks}}.
 #'
