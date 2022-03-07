@@ -64,14 +64,13 @@ compare_two_sample_orientations <- function (sample_1, sample_2) {
   ndat<-c(length(sample_1), length(sample_2))
   g<-2
 
-  pchisq(WgVal(CosSinUniScores(target = target), ndat = ndat, g = g),
+  p = pchisq(WgVal(CosSinUniScores(target = target), ndat = ndat, g = g),
          2*(g-1), lower.tail = FALSE)
 
   # Randomized Madria-Watson-Wheeler **** - test statistic is Wg
 
   return(list(
     test_statistic = WgVal(CosSinUniScores(target = target), ndat = ndat, g = g),
-    p_value = WgTestRand(CosSinUniScores(target = target), ndat = ndat, g = g,
-                         NR = 9999)))
+    p_value = p))
 
 }
