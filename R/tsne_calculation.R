@@ -93,7 +93,7 @@ tsne_calculation <- function(data, bone, labels = NULL, n_iterations = 1000, per
   if (is.null(perplexity)) {
     perplexity = dim(data)[1] ** (1/2)
   } else {
-    if (perplextiy < 0) {
+    if (perplexity < 0) {
       stop("Perplexity must be a non-negative number")
     }
   }
