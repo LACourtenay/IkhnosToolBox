@@ -1,7 +1,7 @@
 Package: IkhnosToolBox
 Type: Package
 Title: R Tool Box for the Ikhnos Taphonomic Software
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Lloyd", "Courtenay", email = "ladc1995@gmail.com", role = c("aut", "cre")),
     person("Julia", "Aramendi", email = "julia.aramendi@gmail.com", role = "aut")
