@@ -15,9 +15,10 @@ LazyData: true
 Imports:
     rgl (>= 0.107),
     plot3Drgl (>= 1.0),
-    spatstat (>= 2.0),
-    spatstat.core (>= 2.0),
-    spatstat.geom(>= 2.0),
+    spatstat (>= 3.0),
+    spatstat.explore(>= 3.0),
+    spatstat.geom(>= 3.0),
+    spatstat.model (>= 3.0),
     biwavelet (>= 0.20),
     tidyverse (>= 1.3),
     ggplot2 (>= 3.0),
@@ -34,6 +35,6 @@ Imports:
     sm (>= 2.2)
 Suggests:
     FactoMineR (>= 2.4)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)

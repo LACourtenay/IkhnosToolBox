@@ -28,9 +28,9 @@ and \code{pcf3est} functions, and for the square root versions of the \code{K3es
 \description{
 The present function conducts spatial analyses on the
 3D point patterns representing the marks using the \code{K3est},
-\code{F3est}, \code{G3est} and \code{pcf3est} functions that, respectively, 
+\code{F3est}, \code{G3est} and \code{pcf3est} functions that, respectively,
 estimate the K-function, the empty space function, the nearest-neighbour
-distance distribution function, and the pair correlation function from a 3D 
+distance distribution function, and the pair correlation function from a 3D
 point pattern. Square root versions of the \code{K3est}, \code{F3est} and
 \code{G3est} functions are included to stabilise variance if needed.
 }
@@ -38,7 +38,7 @@ point pattern. Square root versions of the \code{K3est}, \code{F3est} and
 
 Functions assume that point distribution is homogeneous and could therefore
 inflate the identification of clustering patterns when inhomogeneous
-distributions are present. Functions for inhomogeneous patterns are not 
+distributions are present. Functions for inhomogeneous patterns are not
 available for 3D point patterns yet.
 }
 
@@ -76,6 +76,6 @@ example_CSR_analyses <- perform_CSR_analyses(
 )
 }
 \seealso{
-\code{\link{spatstat.core}}, \code{\link{K3est}}, \code{\link{F3est}},
+\code{\link{spatstat.explore}}, \code{\link{K3est}}, \code{\link{F3est}},
 \code{\link{G3est}}, \code{\link{pcf3est}}
 }

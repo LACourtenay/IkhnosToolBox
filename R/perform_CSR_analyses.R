@@ -3,9 +3,9 @@
 #'
 #' @description The present function conducts spatial analyses on the
 #' 3D point patterns representing the marks using the \code{K3est},
-#' \code{F3est}, \code{G3est} and \code{pcf3est} functions that, respectively, 
+#' \code{F3est}, \code{G3est} and \code{pcf3est} functions that, respectively,
 #' estimate the K-function, the empty space function, the nearest-neighbour
-#' distance distribution function, and the pair correlation function from a 3D 
+#' distance distribution function, and the pair correlation function from a 3D
 #' point pattern. Square root versions of the \code{K3est}, \code{F3est} and
 #' \code{G3est} functions are included to stabilise variance if needed.
 #'
@@ -20,13 +20,13 @@
 #' and \code{pcf3est} functions, and for the square root versions of the \code{K3est},
 #' \code{F3est} and \code{G3est} functions.
 #'
-#' @seealso \code{\link{spatstat.core}}, \code{\link{K3est}}, \code{\link{F3est}},
+#' @seealso \code{\link{spatstat.explore}}, \code{\link{K3est}}, \code{\link{F3est}},
 #' \code{\link{G3est}}, \code{\link{pcf3est}}
-#' 
+#'
 #' @section Notes:
 #' Functions assume that point distribution is homogeneous and could therefore
 #' inflate the identification of clustering patterns when inhomogeneous
-#' distributions are present. Functions for inhomogeneous patterns are not 
+#' distributions are present. Functions for inhomogeneous patterns are not
 #' available for 3D point patterns yet.
 #'
 #' @section Bibliography:
@@ -87,32 +87,32 @@ perform_CSR_analyses <- function(spatial_object, n_permutations = 1000,
   pb <- txtProgressBar(min = 0, max = 4,
                        style = 3, width = 100, char = "=")
 
-  Ke <- spatstat.core::envelope(spatial_object,
-                                spatstat.core::K3est,
-                                nsim = n_permutations,
-                                nrank = 50, nrval = 512,
-                                verbose = FALSE)
+  Ke <- spatstat.explore::envelope(spatial_object,
+                                   spatstat.explore::K3est,
+                                   nsim = n_permutations,
+                                   nrank = 50, nrval = 512,
+                                   verbose = FALSE)
 
   setTxtProgressBar(pb, 1)
-  Fe <- spatstat.core::envelope(spatial_object,
-                                spatstat.core::F3est,
-                                nsim = n_permutations,
-                                nrank = 50, nrval = 512,
-                                verbose = FALSE)
+  Fe <- spatstat.explore::envelope(spatial_object,
+                                   spatstat.explore::F3est,
+                                   nsim = n_permutations,
+                                   nrank = 50, nrval = 512,
+                                   verbose = FALSE)
 
   setTxtProgressBar(pb, 2)
-  Ge <- spatstat.core::envelope(spatial_object,
-                                spatstat.core::G3est,
-                                nsim = n_permutations,
-                                nrank = 50, nrval = 512,
-                                verbose = FALSE)
+  Ge <- spatstat.explore::envelope(spatial_object,
+                                   spatstat.explore::G3est,
+                                   nsim = n_permutations,
+                                   nrank = 50, nrval = 512,
+                                   verbose = FALSE)
 
   setTxtProgressBar(pb, 3)
-  PCF_plot <- spatstat.core::envelope(spatial_object,
-                                      spatstat.core::pcf3est,
-                                      nsim = n_permutations,
-                                      nrank = 50, nrval = 512,
-                                      verbose = FALSE)
+  PCF_plot <- spatstat.explore::envelope(spatial_object,
+                                         spatstat.explore::pcf3est,
+                                         nsim = n_permutations,
+                                         nrank = 50, nrval = 512,
+                                         verbose = FALSE)
 
   setTxtProgressBar(pb, 4)
 
